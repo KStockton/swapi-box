@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { filmInfo } from './AppHelper'
+import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
 
@@ -9,7 +11,7 @@ export default class App extends Component {
     super()
 
   this.state = {
-    filmText: '',
+    filmText: {},
     isLoading: true
   }
 }
@@ -25,25 +27,35 @@ componentDidMount = () => {
   const url = `https://swapi.co/api/films/${filmNumber}/`
   fetch(url)
   .then(response => response.json())
-  .then(filmText => 
-    console.log({title: filmText.title, openingCrawl: filmText.opening_crawl, }))
+  .then(result => filmInfo(result))
+  .then(filmText => this.setState({ filmText,
+  isLoading: false }))
+  .catch(error => console.log(error))
+
 }
 
 render() {
+  console.log(this.state.filmText)
+  let initialDisplay
+  if(this.state.isLoading){
+   initialDisplay =  <section>
+     <img src={logo} className="App-logo" alt="logo"/>
+    <h3>Loading...</h3>
+     </section>
+  } else {
+    initialDisplay = <Scroll filmText={this.state.filmText} />
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        {initialDisplay}
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          
         </a>
       </header>
     </div>
