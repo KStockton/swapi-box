@@ -1,0 +1,39 @@
+.Scroll-article {
+  overflow: hidden;
+}
+
+p {
+  position: absolute;
+  font-weight: 800;
+  margin: 20% auto;
+  color: white;
+  opacity: 0;
+  z-index: 1;
+  animation: fadeTitle 5s ease-out;
+}
+
+.filmtext-wrapper-before {
+  position: fixed;
+    left: 5%;
+    bottom: 0%;
+    overflow: hidden;
+    transform: perspective(303px) rotateX(13deg);
+    height: 100%;
+    width: 90%;
+  &:after {
+   position: absolute;
+   content: '';
+   top: 100%;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+}
+
+.filmtext-wrapper-after {
+  position: absolute; 
+  top: 100%;
+  animation: scrollCrawl 20s linear;
+  animation-iteration-count: 1;
+  color: hsla(51, 100%, 50%, 1);
+}

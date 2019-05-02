@@ -1,17 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Roboto+Condensed');
 @import '_variables.scss';
+@import './components/Scroll/Scroll.scss';
 
 
-body {
-  margin: 0;
-  padding: 0;
-  background-image: url('https://wallpaperfm.com/img/original/d/e/8/16857.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  font-family: "Roboto", "Orbitron";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 
