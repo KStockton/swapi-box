@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { filmInfo, getSpecies, fetchData, getHomeWorld } from './AppHelper'
+import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
@@ -15,7 +15,7 @@ export default class App extends Component {
     filmText: {},
     isLoading: true,
     category: '',
-    people: '',
+    starWarPeople: [],
     vehicles: '',
     planets: ''
   }
@@ -64,7 +64,11 @@ getPeople = () => {
   fetchData('people/')
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
-  .then(peopleResults => console.log(peopleResults))
+  .then(peopleResult => {
+      let starWarPeople = onlyPeople(peopleResult)
+      this.setState({starWarPeople})
+    })
+   
   
 }
 
@@ -79,7 +83,7 @@ getVehicles(){
 
 
 render() {
-console.log(this.state.filmText)
+console.log(this.state.starWarPeople)
   
   let initialDisplay
   if(this.state.isLoading){
@@ -96,10 +100,9 @@ console.log(this.state.filmText)
   return (
     <div className="App">
       <header className="App-header">
-    {initialDisplay}
+        {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
       </header>
-      <Controls/>
     </div>
   );
   }

@@ -37,6 +37,18 @@ export function getHomeWorld(characterBios){
   return Promise.all(homeWorld)
 }
 
+export function onlyPeople(peoples) {
+  let allPeople = peoples.map(people =>{
+    return({ name: people.name, 
+             homeworld: people.homeworld.name,
+             species: people.species.name,
+             language: people.species.language
+      }
+    )
+  })
+  return allPeople
+}
+
  
 
 
