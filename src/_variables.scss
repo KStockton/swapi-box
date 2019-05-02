@@ -1,0 +1,18 @@
+
+@mixin displayFlex($justC, $alignC, $alignI, $fdirection){
+  display: flex;
+  justify-content: $justC;
+  align-content: $alignC;
+  flex-direction: $fdirection;
+}
+
+@keyframes fadeTitle {
+  5% { opacity: 1; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes scrollCrawl {
+  0% { top: 100%; }
+	100% { top: -170%; }
+}
