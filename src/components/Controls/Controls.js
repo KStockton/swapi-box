@@ -1,27 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './Controls.scss';
 
-class Controls extends Component {
-
-
-
-  // handleClick = (event) =>{
-  //   const { name } = event.target
-  //    console.log(event.target.name)
-  //   this.setState({})
-  // }
-  
-  
-  render() {
-    console.log(this.state)
+const Controls = (props) => {
   return(
-    <section>
+    <section className="Controls-wrapper">
       <h1>Swapi-Box</h1>
-      <button name="people" onClick={this.handleClick}>People</button>
-      <button name="planets" onClick={this.handleClick}>Planets</button>
-      <button name="vehicles" onClick={this.handleClick}>Vehicles</button>
+      <button className="Controls-btn" name="people" onClick={props.handleCategory}>
+        People
+      </button>
+      <button className="Controls-btn" name="planets" onClick={props.handleCategory}>
+        Planets
+      </button>
+      <button  className="Controls-btn" name="vehicles" onClick={props.handleCategory}>
+        Vehicles
+      </button>
     </section>
   )
-  }
+  
   }
 
 export default Controls

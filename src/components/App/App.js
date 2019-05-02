@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { filmInfo} from './AppHelper'
+import { filmInfo, getSpecies, fetchData, getHomeWorld } from './AppHelper'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
@@ -14,18 +14,16 @@ export default class App extends Component {
   this.state = {
     filmText: {},
     isLoading: true,
-
+    category: '',
+    people: '',
+    vehicles: '',
+    planets: ''
   }
 }
 
-randomFilm () {
-  const num = Math.floor(Math.random() * 7) + 1
-  return num
-}
 
 componentDidMount = () => {
-  const filmNumber = this.randomFilm()
-
+  const filmNumber = Math.floor(Math.random() * 7) + 1
   const url = `https://swapi.co/api/films/${filmNumber}/`
   fetch(url)
   .then(response => response.json())
@@ -40,8 +38,43 @@ componentDidMount = () => {
 }
 
 
+handleCategory = event => {
+  let category = event.target.name
+  let result = this.handleFetch(category)
+  this.setState({category})
+}
 
+handleFetch(usercategory){
 
+  switch(usercategory) {
+    case 'people':
+      this.getPeople();
+      break;
+    case 'vehicles':
+      this.getVehicles()
+      break;
+    case 'planets':
+      this.getPlanets()
+      break;
+    default: return null
+  }
+}
+
+getPeople = () => {
+  fetchData('people/')
+  .then(characters => getSpecies(characters.results))
+  .then(charactersData => getHomeWorld(charactersData))
+  .then(peopleResults => console.log(peopleResults))
+  
+}
+
+getPlanets(){
+
+}
+
+getVehicles(){
+
+}
 
 
 
@@ -64,8 +97,9 @@ console.log(this.state.filmText)
     <div className="App">
       <header className="App-header">
     {initialDisplay}
-        <Controls />
+        <Controls handleCategory={this.handleCategory}/>
       </header>
+      <Controls/>
     </div>
   );
   }
