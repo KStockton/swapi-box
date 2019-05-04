@@ -67,7 +67,7 @@ getPeople = () => {
   .then(charactersData => getHomeWorld(charactersData))
   .then(peopleResult => {
       let people = onlyPeople(peopleResult)
-      this.setState({people, isLoading: false})
+      this.setState({ people, isLoading: false})
     })
    
   
@@ -84,35 +84,33 @@ getVehicles(){
 
 
 render() {
-console.log('works', this.state[this.state.category])
+
+  const categoryStatus = this.state.category === ''
+console.log(this.state.people)
   
   let initialDisplay
-  if(this.state.isLoading){
-
+  if(this.state.isLoading)
    initialDisplay = 
-    <section>
-      <img src={logo} className="App-logo" alt="logo"/>
-      <h3>Loading have faith...</h3>
-    </section>
-
-  } else if(this.state.people.length === 0) {
-    initialDisplay = <Scroll filmText={this.state.filmText} />
-  } 
+                  <section>
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h3>Loading have faith...</h3>
+                  </section>
+ 
   return (
     <div className="App">
       <header className="App-header">
-        {initialDisplay}
+      {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
       </header>
-      {/* <CSSTransition
+      <CSSTransition
       in={this.state.isLoading}
       appear={true}
       timeout={600}
       classNames="fade"
-      > */}
+      >
 
-      {this.state.category !== '' && <CardContainer category={this.state[this.state.category]}/>}
-      {/* </CSSTransition> */}
+      {categoryStatus ? <Scroll filmText={this.state.filmText} />: <CardContainer category={this.state[this.state.category]}/> }
+      </CSSTransition>
     </div>
   );
   }

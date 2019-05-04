@@ -1,3 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardContainer should render correctly without crashing 1`] = `undefined`;
+exports[`CardContainer should render correctly without crashing 1`] = `
+<section
+  className="CardContainer-wrapper"
+>
+  <Card
+    homeworld="Tatooine"
+    key="YqPiqYwP6"
+    language="Galactic Basic"
+    name="Luke Skywalker"
+    population="200000"
+    species="Human"
+  />
+  <Card
+    homeworld="Tatooine"
+    key="DkWfC3jH1m"
+    language="n/a"
+    name="C-3PO"
+    population="200000"
+    species="Droid"
+  />
+</section>
+`;

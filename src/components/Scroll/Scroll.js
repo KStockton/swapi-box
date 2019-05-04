@@ -1,5 +1,6 @@
 import React from 'react';
 import './Scroll.scss'
+import PropTypes from 'prop-types'
 
 const Scroll = ( { filmText } ) => {
 
@@ -15,6 +16,10 @@ return (
       </div>
   </article>
 )
+}
+
+Scroll.propTypes = {
+  filmText: PropTypes.object
 }
 
 export default Scroll

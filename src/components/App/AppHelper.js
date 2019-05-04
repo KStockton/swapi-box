@@ -32,7 +32,6 @@ export function getHomeWorld(characterBios){
   const homeWorld = characterBios.map(bio => {
     return fetch(bio.homeworld)
            .then(response => response.json())
-           
            .then(homeworld => ({...bio, homeworld}))
   })
   console.log('home',homeWorld)

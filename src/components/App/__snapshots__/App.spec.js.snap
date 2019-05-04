@@ -21,5 +21,15 @@ exports[`Controls should match the snatpshot 1`] = `
       handleCategory={[Function]}
     />
   </header>
+  <CSSTransition
+    appear={true}
+    classNames="fade"
+    in={true}
+    timeout={600}
+  >
+    <Scroll
+      filmText={Object {}}
+    />
+  </CSSTransition>
 </div>
 `;
