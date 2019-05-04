@@ -93,24 +93,30 @@ console.log(this.state.people)
    initialDisplay = 
                   <section>
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h3>Loading have faith...</h3>
+                    <h5>Loading have faith...</h5>
                   </section>
  
   return (
     <div className="App">
       <header className="App-header">
-      {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
       </header>
+
+      {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
       <CSSTransition
       in={this.state.isLoading}
       appear={true}
       timeout={600}
       classNames="fade"
       >
-
-      {categoryStatus ? <Scroll filmText={this.state.filmText} />: <CardContainer category={this.state[this.state.category]}/> }
+      
+      <CardContainer category={this.state[this.state.category]}/> 
       </CSSTransition>
+      }
+      <footer>
+      {initialDisplay}
+
+      </footer>
     </div>
   );
   }

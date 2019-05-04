@@ -1,4 +1,4 @@
-export function filmInfo(randomFilm) {
+function filmInfo(randomFilm) {
   const userFilm = {
     openingCrawl: randomFilm.opening_crawl,
     title: randomFilm.title,
@@ -7,7 +7,7 @@ export function filmInfo(randomFilm) {
   return userFilm
 }
 
-export function fetchData(urlText){
+function fetchData(urlText){
   return fetch(`https:/swapi.co/api/${urlText}`)
     .then(response => {
       if(!response.ok){
@@ -18,7 +18,7 @@ export function fetchData(urlText){
 })
 }
 
-export function getSpecies(characters){
+function getSpecies(characters){
   const completeSpeciesPromise = characters.map(character =>{
     return fetch(character.species)
            .then(response => response.json())
@@ -27,7 +27,7 @@ export function getSpecies(characters){
   return Promise.all(completeSpeciesPromise)
 }
 
-export function getHomeWorld(characterBios){
+ function getHomeWorld(characterBios){
   console.log(characterBios)
   const homeWorld = characterBios.map(bio => {
     return fetch(bio.homeworld)
@@ -38,7 +38,7 @@ export function getHomeWorld(characterBios){
   return Promise.all(homeWorld)
 }
 
-export function onlyPeople(peoples) {
+ function onlyPeople(peoples) {
   let allPeople = peoples.map(people =>{
     return({ name: people.name, 
              homeworld: people.homeworld.name,
@@ -53,4 +53,10 @@ export function onlyPeople(peoples) {
 
  
 
-
+export {
+  onlyPeople,
+  getHomeWorld,
+  getSpecies,
+  fetchData,
+  filmInfo
+}
