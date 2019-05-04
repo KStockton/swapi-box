@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper'
+import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper.js'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
-import Controls from '../Controls/Controls'
-
-
+import Controls from '../Controls/Controls.js'
+import CardContainer from '../CardContainer/CardContainer.js'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class App extends Component {
   constructor(){
@@ -15,7 +15,7 @@ export default class App extends Component {
     filmText: {},
     isLoading: true,
     category: '',
-    starWarPeople: [],
+    people: [],
     vehicles: '',
     planets: ''
   }
@@ -40,8 +40,8 @@ componentDidMount = () => {
 
 handleCategory = event => {
   let category = event.target.name
-  let result = this.handleFetch(category)
   this.setState({category})
+  this.handleFetch(category)
 }
 
 handleFetch(usercategory){
@@ -61,12 +61,13 @@ handleFetch(usercategory){
 }
 
 getPeople = () => {
+  this.setState({isLoading: !this.state.isLoading})
   fetchData('people/')
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
   .then(peopleResult => {
-      let starWarPeople = onlyPeople(peopleResult)
-      this.setState({starWarPeople})
+      let people = onlyPeople(peopleResult)
+      this.setState({people, isLoading: false})
     })
    
   
@@ -83,7 +84,7 @@ getVehicles(){
 
 
 render() {
-console.log(this.state.starWarPeople)
+console.log('works', this.state[this.state.category])
   
   let initialDisplay
   if(this.state.isLoading){
@@ -94,7 +95,7 @@ console.log(this.state.starWarPeople)
       <h3>Loading have faith...</h3>
     </section>
 
-  } else {
+  } else if(this.state.people.length === 0) {
     initialDisplay = <Scroll filmText={this.state.filmText} />
   } 
   return (
@@ -103,6 +104,15 @@ console.log(this.state.starWarPeople)
         {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
       </header>
+      {/* <CSSTransition
+      in={this.state.isLoading}
+      appear={true}
+      timeout={600}
+      classNames="fade"
+      > */}
+
+      {this.state.category !== '' && <CardContainer category={this.state[this.state.category]}/>}
+      {/* </CSSTransition> */}
     </div>
   );
   }

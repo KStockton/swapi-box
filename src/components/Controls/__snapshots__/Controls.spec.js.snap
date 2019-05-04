@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls Expect component to render without crashing 1`] = `
+<section
+  className="Controls-wrapper"
+>
+  <h1>
+    Swapi-Box
+  </h1>
+  <button
+    className="Controls-btn"
+    name="people"
+    onClick={[MockFunction]}
+  >
+    People
+  </button>
+  <button
+    className="Controls-btn"
+    name="planets"
+    onClick={[MockFunction]}
+  >
+    Planets
+  </button>
+  <button
+    className="Controls-btn"
+    name="vehicles"
+    onClick={[MockFunction]}
+  >
+    Vehicles
+  </button>
+</section>
+`;

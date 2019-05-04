@@ -1,5 +1,6 @@
 import React from 'react';
 import './Controls.scss';
+import PropTypes from 'prop-types'
 
 const Controls = (props) => {
   return(
@@ -16,7 +17,10 @@ const Controls = (props) => {
       </button>
     </section>
   )
-  
+  }
+
+  Controls.propTypes = {
+    handleCategory: PropTypes.func
   }
 
 export default Controls
