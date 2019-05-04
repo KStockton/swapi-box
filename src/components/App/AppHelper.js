@@ -7,44 +7,51 @@ export function filmInfo(randomFilm) {
   return userFilm
 }
 
-// export function getPeople(){
-//   const people = fetch('https:/swapi.co/api/people')
-//   .then(response => response.json())
+export function fetchData(urlText){
+  return fetch(`https:/swapi.co/api/${urlText}`)
+    .then(response => {
+      if(!response.ok){
+        throw Error('Error fetching data')
+      } else {
+        return response.json()
+      }
+})
+}
 
-// Promise.all(people.results)
-  
-// }
+export function getSpecies(characters){
+  const completeSpeciesPromise = characters.map(character =>{
+    return fetch(character.species)
+           .then(response => response.json())
+           .then(species => ({...character, species}))
+  })
+  return Promise.all(completeSpeciesPromise)
+}
 
-// switch() {
-//   case 'film':
-//     urlSwitch('film/');
-//     break;
-//   case 'people':
-//     urlSwitch('people/')
-//     break;
-//   case 'planets':
-//     urlSwitch('planets/')
-//     break;
-// }
+export function getHomeWorld(characterBios){
+  console.log(characterBios)
+  const homeWorld = characterBios.map(bio => {
+    return fetch(bio.homeworld)
+           .then(response => response.json())
+           
+           .then(homeworld => ({...bio, homeworld}))
+  })
+  console.log('home',homeWorld)
+  return Promise.all(homeWorld)
+}
+
+export function onlyPeople(peoples) {
+  let allPeople = peoples.map(people =>{
+    return({ name: people.name, 
+             homeworld: people.homeworld.name,
+             species: people.species.name,
+             language: people.species.language,
+             population: people.homeworld.population
+      }
+    )
+  })
+  return allPeople
+}
+
+ 
 
 
-// function urlSwitch(url){
-//   const apiFetch = `https://swapi.co/api/${url}`
-//   return apiFetch
-// }
-
-// export function fetchData(url){
-//   const apiFetch = fetch(url)
-//   .then(response => response.json())
-
-  
-//   .then(data => data)
-// }
-
-
-// Promise.all([people, species, planet])
-// .then(data => this.setState({
-//   people: people,
-//   species: species,
-//   planet: planet
-// })

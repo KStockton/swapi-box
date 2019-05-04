@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls should match the snatpshot 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <section>
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <h3>
+        Loading have faith...
+      </h3>
+    </section>
+    <Controls
+      handleCategory={[Function]}
+    />
+  </header>
+</div>
+`;

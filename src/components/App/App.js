@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { filmInfo} from './AppHelper'
+import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper.js'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
-import Controls from '../Controls/Controls'
-
-
+import Controls from '../Controls/Controls.js'
+import CardContainer from '../CardContainer/CardContainer.js'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class App extends Component {
   constructor(){
@@ -14,18 +14,16 @@ export default class App extends Component {
   this.state = {
     filmText: {},
     isLoading: true,
-
+    category: '',
+    people: [],
+    vehicles: '',
+    planets: ''
   }
 }
 
-randomFilm () {
-  const num = Math.floor(Math.random() * 7) + 1
-  return num
-}
 
 componentDidMount = () => {
-  const filmNumber = this.randomFilm()
-
+  const filmNumber = Math.floor(Math.random() * 7) + 1
   const url = `https://swapi.co/api/films/${filmNumber}/`
   fetch(url)
   .then(response => response.json())
@@ -40,13 +38,53 @@ componentDidMount = () => {
 }
 
 
+handleCategory = event => {
+  let category = event.target.name
+  this.setState({category})
+  this.handleFetch(category)
+}
 
+handleFetch(usercategory){
 
+  switch(usercategory) {
+    case 'people':
+      this.getPeople();
+      break;
+    case 'vehicles':
+      this.getVehicles()
+      break;
+    case 'planets':
+      this.getPlanets()
+      break;
+    default: return null
+  }
+}
+
+getPeople = () => {
+  this.setState({isLoading: !this.state.isLoading})
+  fetchData('people/')
+  .then(characters => getSpecies(characters.results))
+  .then(charactersData => getHomeWorld(charactersData))
+  .then(peopleResult => {
+      let people = onlyPeople(peopleResult)
+      this.setState({people, isLoading: false})
+    })
+   
+  
+}
+
+getPlanets(){
+
+}
+
+getVehicles(){
+
+}
 
 
 
 render() {
-console.log(this.state.filmText)
+console.log('works', this.state[this.state.category])
   
   let initialDisplay
   if(this.state.isLoading){
@@ -57,15 +95,24 @@ console.log(this.state.filmText)
       <h3>Loading have faith...</h3>
     </section>
 
-  } else {
+  } else if(this.state.people.length === 0) {
     initialDisplay = <Scroll filmText={this.state.filmText} />
   } 
   return (
     <div className="App">
       <header className="App-header">
-    {initialDisplay}
-        <Controls />
+        {initialDisplay}
+        <Controls handleCategory={this.handleCategory}/>
       </header>
+      {/* <CSSTransition
+      in={this.state.isLoading}
+      appear={true}
+      timeout={600}
+      classNames="fade"
+      > */}
+
+      {this.state.category !== '' && <CardContainer category={this.state[this.state.category]}/>}
+      {/* </CSSTransition> */}
     </div>
   );
   }

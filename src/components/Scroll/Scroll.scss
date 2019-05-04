@@ -14,12 +14,12 @@ p {
 
 .filmtext-wrapper-before {
   position: fixed;
-    left: 5%;
-    bottom: 0%;
-    overflow: hidden;
-    transform: perspective(303px) rotateX(13deg);
-    height: 100%;
-    width: 90%;
+  left: 5%;
+  bottom: 0%;
+  overflow: hidden;
+  transform: perspective(303px) rotateX(13deg);
+  height: 95%;
+  width: 90%;
   &:after {
    position: absolute;
    content: '';
