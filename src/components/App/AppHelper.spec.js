@@ -95,19 +95,35 @@ const mockFilm = {
     let mockCharacterBio
     let mockHomeworld
     beforeAll(() => {
-      mockCharacterBio = {
+
+      mockCharacterBio = [{
         "name": "Luke Skywalker",
         "species": {
           "name": "Human",
           "language": "English"
         },
         "homeworld": "https://swapi.co/api/planets/1/"
-      }
+      }]
+
       mockHomeworld = {
         "name": "Tatooine",
         "population": "200000"
       }
-      window.fetch = jest.fn().mockImplementation
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve(mockHomeworld)
+      })
+    })
+    it('should call fetch with the correct params', () => {
+      getHomeWorld(mockCharacterBio)
+      expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/planets/1/")
+    })
+    it('should return an error if the status is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() =>{
+        return Promise.resolve({
+          ok: false
+        })
+      })
+      await expect(getHomeWorld(mockCharacterBio)).rejects.toEqual(Error('Error fetching data'))
     })
 
   })

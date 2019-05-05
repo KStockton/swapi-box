@@ -25,9 +25,9 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer category={mockProp}/>)
   })
 
-  it('should render correctly without crashing', () => {
+  it.skip('should render correctly without crashing', () => {
     expect(wrapper).toMatchSnapshot()
   })
-  // it('shoul')
+  
 
 })
