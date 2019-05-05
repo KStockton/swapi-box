@@ -21,7 +21,7 @@ const mockFilm = {
   });
 })
   
-  it('should be called with the correct params', ()=>{
+  it('should be call fetch with the correct params', ()=>{
     const filmNumber = 1
     const mockUrl = `https://swapi.co/api/films/${filmNumber}/`
     fetchData(mockUrl)
@@ -41,5 +41,37 @@ const mockFilm = {
     })
     await expect(fetchData()).rejects.toEqual(Error('Error fetching data'))
   })
+
+  describe('GetSpecies', () =>{
+
+    beforeEach(() =>{
+      window.fetch= jest.fn().mockImplementation(() =>{
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve()
+        })
+      })
+    })
+    it('Should call fetch with the correct params', () =>{
+      const mockCharacterSpecies =   {
+        "name": "Luke Skywalker",
+        "homeworld": "https://swapi.co/api/planets/1/",
+        "films": [
+          "https://swapi.co/api/films/2/",
+        ],
+        "species": [
+          "https://swapi.co/api/species/1/"
+        ],
+        "vehicles": [
+          "https://swapi.co/api/vehicles/14/",
+        ]
+      }
+      fetchData(mockCharacterSpecies.species[0])
+      expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/species/1/")
+    })
+  })
   
   })
+
+
+
