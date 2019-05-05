@@ -25,7 +25,7 @@ export default class App extends Component {
 componentDidMount = () => {
   const filmNumber = Math.floor(Math.random() * 7) + 1
   const url = `https://swapi.co/api/films/${filmNumber}/`
-  fetch(url)
+  return fetch(url)
   .then(response => response.json())
   .then(result => filmInfo(result))
   .then(filmText => this.setState(
@@ -62,7 +62,7 @@ handleFetch(usercategory){
 
 getPeople = () => {
   this.setState({isLoading: !this.state.isLoading})
-  fetchData('people/')
+  return fetchData('people/')
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
   .then(people => this.setState({ people, isLoading: false}))
@@ -81,7 +81,6 @@ getVehicles(){
 render() {
 
   const categoryStatus = this.state.category === ''
-console.log(this.state.people)
   
   let initialDisplay
   if(this.state.isLoading)

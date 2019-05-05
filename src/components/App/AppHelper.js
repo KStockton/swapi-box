@@ -26,9 +26,7 @@ function fetchData(urlText){
 }
 
 function getSpecies(characters){
-  console.log(characters)
   const completeSpeciesPromise = characters.map(character =>{
-    
     return fetchData(character.species)         
            .then(species => ({...character, species}))
   })
