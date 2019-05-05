@@ -1,8 +1,7 @@
 import {
 getHomeWorld,
 getSpecies,
-fetchData,
-filmInfo
+fetchData
 } from './AppHelper.js'
 
 describe('fetchData', () => {
@@ -150,6 +149,7 @@ describe('filmInfo', () => {
       "releaseDate": "2015-12-11"
     }
   })
+  
 })
 
 

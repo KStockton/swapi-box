@@ -4,9 +4,7 @@ exports[`Scroll should render correctly 1`] = `
 <article
   className="Scroll-article"
 >
-  <p>
-    From a galaxy far far away...
-  </p>
+  <p />
   <div
     className="filmtext-wrapper-before"
   >
@@ -16,7 +14,11 @@ exports[`Scroll should render correctly 1`] = `
       <h1>
         Revenge of the Sith
       </h1>
+      <h2>
+        Episode: 
+      </h2>
       <h4>
+        Date: 
         2005-05-19
       </h4>
       <h5>
