@@ -12,7 +12,7 @@ const mockFilm = {
   releaseDate: '1980-05-17',
   openingCrawl: 'Although the Death'
 }
-  beforeEach(()=> {
+  beforeAll(()=> {
   window.fetch = jest.fn().mockImplementation(() => {
     return Promise.resolve({
       ok: true,
@@ -41,13 +41,13 @@ const mockFilm = {
     })
     await expect(fetchData()).rejects.toEqual(Error('Error fetching data'))
   })
-
+})
   describe('GetSpecies', () =>{
 
     let mockCharacter 
     let mockSpecies 
   
-    beforeEach(() =>{
+    beforeAll(() =>{
       mockSpecies = {
         "name": "Human"
       }
@@ -90,7 +90,26 @@ const mockFilm = {
       await expect(getSpecies(mockCharacter)).rejects.toEqual(Error('Error fetching data'))
     })
   })
-  
+
+  describe('GetHomeWorld', () => {
+    let mockCharacterBio
+    let mockHomeworld
+    beforeAll(() => {
+      mockCharacterBio = {
+        "name": "Luke Skywalker",
+        "species": {
+          "name": "Human",
+          "language": "English"
+        },
+        "homeworld": "https://swapi.co/api/planets/1/"
+      }
+      mockHomeworld = {
+        "name": "Tatooine",
+        "population": "200000"
+      }
+      window.fetch = jest.fn().mockImplementation
+    })
+
   })
 
 
