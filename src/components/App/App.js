@@ -63,7 +63,8 @@ getPeople = () => {
   this.setState({isLoading: !this.state.isLoading})
   return fetchData('people/')
   .then(characters => getSpecies(characters.results))
-  .then(charactersData => getHomeWorld(charactersData))
+  .then(charactersData => console.log(charactersData))
+    // getHomeWorld(charactersData))
   .then(people => this.setState({ people, isLoading: false}))
 }
 

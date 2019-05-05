@@ -69,12 +69,25 @@ const mockFilm = {
       getSpecies(mockCharacter)
       expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/species/1/")
     })
-    it.skip('should return a parsed response if status is ok', async ()=>{
+    it('should return a array object with species object', async ()=>{
+      const mockPromise = 
+      [{
+        "name": "Luke Skywalker",
+        "species": 
+        {
+          "name": "Human"
+        }
+      }]
       const result = await getSpecies(mockCharacter);
-    expect(result).toEqual(mockCharacter)
+      expect(result).toEqual(mockPromise)
     })
-    it.skip('should return species when correct params are passed', async() => {
-      getSpecies(mockCharacter)
+    it('should return an error if the status is not ok', async() => {
+      window.fetch = jest.fn().mockImplementation(() =>{
+        return Promise.resolve({
+          ok: false
+        })
+      })
+      await expect(getSpecies(mockCharacter)).rejects.toEqual(Error('Error fetching data'))
     })
   })
   
