@@ -1,8 +1,7 @@
-import React from 'react'
-import {getHomeWorld,
+import {
+getHomeWorld,
 getSpecies,
-fetchData,
-filmInfo
+fetchData
 } from './AppHelper.js'
 
 describe('fetchData', () => {
@@ -94,23 +93,63 @@ const mockFilm = {
   describe('GetHomeWorld', () => {
     let mockCharacterBio
     let mockHomeworld
-    beforeAll(() => {
-      mockCharacterBio = {
+    beforeEach(() => {
+
+      mockCharacterBio = [{
         "name": "Luke Skywalker",
         "species": {
           "name": "Human",
           "language": "English"
         },
         "homeworld": "https://swapi.co/api/planets/1/"
-      }
+      }]
+
       mockHomeworld = {
         "name": "Tatooine",
         "population": "200000"
       }
-      window.fetch = jest.fn().mockImplementation
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockHomeworld)
+      })
     })
-
   })
-
+    it('should call fetch with the correct params', () => {
+      getHomeWorld(mockCharacterBio)
+      expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/planets/1/")
+    })
+    it('should return an error if the status is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() =>{
+        return Promise.resolve({
+          ok: false
+        })
+      })
+      await expect(getHomeWorld(mockCharacterBio)).rejects.toEqual(Error('Error fetching data'))
+    })
+    it('should return an array object with the homeworld information', async () => {
+      let mockHomeworldPromise =  [{
+        "name": "Luke Skywalker",
+        "species": "Human",
+        "language": "English",
+        "homeworld": "Tatooine",
+        "population": "200000"
+      }]
+      const result = await getHomeWorld(mockCharacterBio) 
+      expect(result).toEqual(mockHomeworldPromise)
+    })
+  })
+describe('filmInfo', () => {
+  let mockFilm
+  beforeEach(() =>{
+    mockFilm = {
+      "title": "The Empire Strike Back",
+      "openingCrawl": "It is a dark time for the Rebellion",
+      "episode": "5",
+      "releaseDate": "2015-12-11"
+    }
+  })
+  
+})
 
 

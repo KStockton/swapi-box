@@ -1,11 +1,4 @@
-function filmInfo(randomFilm) {
-  const userFilm = {
-    openingCrawl: randomFilm.opening_crawl,
-    title: randomFilm.title,
-    releaseDate: randomFilm.release_date
-  }
-  return userFilm
-}
+
 
 function fetchData(urlText){
   let url 
@@ -15,6 +8,7 @@ function fetchData(urlText){
   } else {
     url = urlText
   }
+  console.log('url',url)
   return fetch(url)
     .then(response => {
       if(!response.ok){
@@ -27,6 +21,7 @@ function fetchData(urlText){
 
 function getSpecies(characters){
   const completeSpeciesPromise = characters.map(character =>{
+
     return fetchData(character.species[0])         
            .then(species => ({...character, species}))
   })
@@ -34,8 +29,9 @@ function getSpecies(characters){
 }
 
  function getHomeWorld(characterBios){
-
+console.log(characterBios)
   const homeWorld = characterBios.map(bio => {
+    console.log(bio.homeworld,'check1')
     return fetchData(bio.homeworld)
            .then(homeworlds => ({name: bio.name, homeworld: homeworlds.name, population: homeworlds.population, species: bio.species.name, language: bio.species.language }))
   })
@@ -47,5 +43,4 @@ export {
   getHomeWorld,
   getSpecies,
   fetchData,
-  filmInfo
 }
