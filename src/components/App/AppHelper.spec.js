@@ -20,7 +20,7 @@ const mockFilm = {
     });
   });
 })
-
+  
   it('should be called with the correct params', ()=>{
     const filmNumber = 1
     const mockUrl = `https://swapi.co/api/films/${filmNumber}/`
@@ -35,9 +35,11 @@ const mockFilm = {
   })
   it('should return an error if stats is not ok', async () => {
     window.fetch = jest.fn().mockImplementation(() =>{
-      return Promise.resolve
+      return Promise.resolve({
+        ok: false
+      })
     })
+    await expect(fetchData()).rejects.toEqual(Error('Error fetching data'))
   })
-
-
-})
+  
+  })

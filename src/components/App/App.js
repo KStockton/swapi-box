@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper.js'
+import { filmInfo, getSpecies, fetchData, getHomeWorld} from './AppHelper.js'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
