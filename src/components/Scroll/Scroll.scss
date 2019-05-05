@@ -3,13 +3,17 @@
 }
 
 p {
-  position: absolute;
   font-weight: 800;
   margin: 20% auto;
   color: white;
   opacity: 0;
   z-index: 1;
-  animation: fadeTitle 5s ease-out;
+  animation: fadeTitle 4s ease-out;
+  position: fixed;
+  left: 36%;
+  margin: 9px 7px;
+  bottom: 9%;
+  font-size: 28px;
 }
 
 .filmtext-wrapper-before {
@@ -17,7 +21,7 @@ p {
   left: 5%;
   bottom: 0%;
   overflow: hidden;
-  transform: perspective(303px) rotateX(13deg);
+  transform: perspective(250px) rotateX(41deg);
   height: 95%;
   width: 90%;
   &:after {
@@ -31,9 +35,18 @@ p {
 }
 
 .filmtext-wrapper-after {
-  position: absolute; 
+  position: absolute;
   top: 100%;
-  animation: scrollCrawl 20s linear;
+  right: 35%;
+  animation: scrollCrawl 50s linear;
   animation-iteration-count: 1;
-  color: hsla(51, 100%, 50%, 1);
+  color: #ffd900;
+  letter-spacing: 8px;
+  width: 24rem;
+  font-size: 218%;
+  text-align: justify;
+  text-transform: uppercase;
+  font-family: Pathway Gothic One sans-serif;
+  background: linear-gradient(0deg, transparent, #0000001a 75%);
+  line-height: 105%;
 }

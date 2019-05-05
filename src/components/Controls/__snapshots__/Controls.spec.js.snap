@@ -8,21 +8,21 @@ exports[`Controls Expect component to render without crashing 1`] = `
     Swapi-Box
   </h1>
   <button
-    className="Controls-btn"
+    className="Controls-btn people"
     name="people"
     onClick={[MockFunction]}
   >
     People
   </button>
   <button
-    className="Controls-btn"
+    className="Controls-btn planets"
     name="planets"
     onClick={[MockFunction]}
   >
     Planets
   </button>
   <button
-    className="Controls-btn"
+    className="Controls-btn vehicles"
     name="vehicles"
     onClick={[MockFunction]}
   >

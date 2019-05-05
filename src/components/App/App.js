@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { filmInfo, getSpecies, fetchData, getHomeWorld, onlyPeople } from './AppHelper.js'
+import { filmInfo, getSpecies, fetchData, getHomeWorld} from './AppHelper.js'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
@@ -25,8 +25,7 @@ export default class App extends Component {
 componentDidMount = () => {
   const filmNumber = Math.floor(Math.random() * 7) + 1
   const url = `https://swapi.co/api/films/${filmNumber}/`
-  fetch(url)
-  .then(response => response.json())
+  return fetchData(url)
   .then(result => filmInfo(result))
   .then(filmText => this.setState(
     { 
@@ -62,15 +61,10 @@ handleFetch(usercategory){
 
 getPeople = () => {
   this.setState({isLoading: !this.state.isLoading})
-  fetchData('people/')
+  return fetchData('people/')
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
-  .then(peopleResult => {
-      let people = onlyPeople(peopleResult)
-      this.setState({people, isLoading: false})
-    })
-   
-  
+  .then(people => this.setState({ people, isLoading: false}))
 }
 
 getPlanets(){
@@ -84,35 +78,38 @@ getVehicles(){
 
 
 render() {
-console.log('works', this.state[this.state.category])
+
+  const categoryStatus = this.state.category === ''
   
   let initialDisplay
-  if(this.state.isLoading){
-
+  if(this.state.isLoading)
    initialDisplay = 
-    <section>
-      <img src={logo} className="App-logo" alt="logo"/>
-      <h3>Loading have faith...</h3>
-    </section>
-
-  } else if(this.state.people.length === 0) {
-    initialDisplay = <Scroll filmText={this.state.filmText} />
-  } 
+                  <section>
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h5>Loading have faith...</h5>
+                  </section>
+ 
   return (
     <div className="App">
       <header className="App-header">
-        {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
       </header>
-      {/* <CSSTransition
+
+      {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
+      <CSSTransition
       in={this.state.isLoading}
       appear={true}
       timeout={600}
       classNames="fade"
-      > */}
+      >
+      
+      <CardContainer category={this.state[this.state.category]}/> 
+      </CSSTransition>
+      }
+      <footer>
+      {initialDisplay}
 
-      {this.state.category !== '' && <CardContainer category={this.state[this.state.category]}/>}
-      {/* </CSSTransition> */}
+      </footer>
     </div>
   );
   }
