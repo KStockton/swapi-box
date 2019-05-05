@@ -2,7 +2,8 @@ function filmInfo(randomFilm) {
   const userFilm = {
     openingCrawl: randomFilm.opening_crawl,
     title: randomFilm.title,
-    releaseDate: randomFilm.release_date
+    releaseDate: randomFilm.release_date,
+    episode: randomFilm.episode_id
   }
   return userFilm
 }

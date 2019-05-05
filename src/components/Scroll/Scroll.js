@@ -3,15 +3,18 @@ import './Scroll.scss'
 import PropTypes from 'prop-types'
 
 const Scroll = ( { filmText } ) => {
-
+  const {title, episode, releaseDate, openingCrawl} = filmText
+  let romanNumerals = ["I", "II","III", "IV", "V", "VI", "VII" ]
+  let numeral = romanNumerals[episode - 1]
 return (
   <article className="Scroll-article">
     <p>From a galaxy far far away...</p>
       <div className="filmtext-wrapper-before">
         <div className="filmtext-wrapper-after">
-          <h1>{filmText.title}</h1>
-          <h4>{filmText.releaseDate}</h4>
-          <h5>{filmText.openingCrawl}</h5>
+          <h1>{title}</h1>
+          <h2>Episode: {numeral}</h2>
+          <h4>Date: {releaseDate}</h4>
+          <h5>{openingCrawl}</h5>
         </div>
       </div>
   </article>

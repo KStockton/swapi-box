@@ -139,8 +139,17 @@ const mockFilm = {
       const result = await getHomeWorld(mockCharacterBio) 
       expect(result).toEqual(mockHomeworldPromise)
     })
-
   })
-
+describe('filmInfo', () => {
+  let mockFilm
+  beforeEach(() =>{
+    mockFilm = {
+      "title": "The Empire Strike Back",
+      "openingCrawl": "It is a dark time for the Rebellion",
+      "episode": "5",
+      "releaseDate": "2015-12-11"
+    }
+  })
+})
 
 
