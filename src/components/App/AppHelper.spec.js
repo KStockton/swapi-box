@@ -1,5 +1,5 @@
-import React from 'react'
-import {getHomeWorld,
+import {
+getHomeWorld,
 getSpecies,
 fetchData,
 filmInfo
@@ -94,7 +94,7 @@ const mockFilm = {
   describe('GetHomeWorld', () => {
     let mockCharacterBio
     let mockHomeworld
-    beforeAll(() => {
+    beforeEach(() => {
 
       mockCharacterBio = [{
         "name": "Luke Skywalker",
@@ -110,9 +110,12 @@ const mockFilm = {
         "population": "200000"
       }
       window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve(mockHomeworld)
+        return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockHomeworld)
       })
     })
+  })
     it('should call fetch with the correct params', () => {
       getHomeWorld(mockCharacterBio)
       expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/planets/1/")
@@ -124,6 +127,17 @@ const mockFilm = {
         })
       })
       await expect(getHomeWorld(mockCharacterBio)).rejects.toEqual(Error('Error fetching data'))
+    })
+    it('should return an array object with the homeworld information', async () => {
+      let mockHomeworldPromise =  [{
+        "name": "Luke Skywalker",
+        "species": "Human",
+        "language": "English",
+        "homeworld": "Tatooine",
+        "population": "200000"
+      }]
+      const result = await getHomeWorld(mockCharacterBio) 
+      expect(result).toEqual(mockHomeworldPromise)
     })
 
   })

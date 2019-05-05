@@ -7,6 +7,7 @@ const Container = ({category}) => {
   let cards = category.map(item =>{
    return <Card {...item} key={shortid.generate()}/>
   })
+  
   return (
     <section className="CardContainer-wrapper">
        {cards}
