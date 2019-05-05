@@ -12,7 +12,7 @@ const mockFilm = {
   releaseDate: '1980-05-17',
   openingCrawl: 'Although the Death'
 }
-  beforeEach(()=> {
+  beforeAll(()=> {
   window.fetch = jest.fn().mockImplementation(() => {
     return Promise.resolve({
       ok: true,
@@ -33,7 +33,7 @@ const mockFilm = {
     const result = await fetchData(mockUrl);
     expect(result).toEqual(mockFilm) 
   })
-  it('should return an error if stats is not ok', async () => {
+  it('should return an error if status is not ok', async () => {
     window.fetch = jest.fn().mockImplementation(() =>{
       return Promise.resolve({
         ok: false
@@ -41,36 +41,75 @@ const mockFilm = {
     })
     await expect(fetchData()).rejects.toEqual(Error('Error fetching data'))
   })
-
+})
   describe('GetSpecies', () =>{
 
-    beforeEach(() =>{
+    let mockCharacter 
+    let mockSpecies 
+  
+    beforeAll(() =>{
+      mockSpecies = {
+        "name": "Human"
+      }
+
+      mockCharacter = [
+        {
+          "name": "Luke Skywalker",
+          "species": ["https://swapi.co/api/species/1/"]
+        }]
+        
       window.fetch= jest.fn().mockImplementation(() =>{
         return Promise.resolve({
           ok: true,
-          json: () => Promise.resolve()
+          json: () => Promise.resolve(mockSpecies)
         })
       })
     })
     it('Should call fetch with the correct params', () =>{
-      const mockCharacterSpecies =   {
-        "name": "Luke Skywalker",
-        "homeworld": "https://swapi.co/api/planets/1/",
-        "films": [
-          "https://swapi.co/api/films/2/",
-        ],
-        "species": [
-          "https://swapi.co/api/species/1/"
-        ],
-        "vehicles": [
-          "https://swapi.co/api/vehicles/14/",
-        ]
-      }
-      fetchData(mockCharacterSpecies.species[0])
+      getSpecies(mockCharacter)
       expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/species/1/")
     })
+    it('should return a array object with species object', async ()=>{
+      const mockPromise = 
+      [{
+        "name": "Luke Skywalker",
+        "species": 
+        {
+          "name": "Human"
+        }
+      }]
+      const result = await getSpecies(mockCharacter);
+      expect(result).toEqual(mockPromise)
+    })
+    it('should return an error if the status is not ok', async() => {
+      window.fetch = jest.fn().mockImplementation(() =>{
+        return Promise.resolve({
+          ok: false
+        })
+      })
+      await expect(getSpecies(mockCharacter)).rejects.toEqual(Error('Error fetching data'))
+    })
   })
-  
+
+  describe('GetHomeWorld', () => {
+    let mockCharacterBio
+    let mockHomeworld
+    beforeAll(() => {
+      mockCharacterBio = {
+        "name": "Luke Skywalker",
+        "species": {
+          "name": "Human",
+          "language": "English"
+        },
+        "homeworld": "https://swapi.co/api/planets/1/"
+      }
+      mockHomeworld = {
+        "name": "Tatooine",
+        "population": "200000"
+      }
+      window.fetch = jest.fn().mockImplementation
+    })
+
   })
 
 
