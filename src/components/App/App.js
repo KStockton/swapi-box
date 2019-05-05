@@ -25,8 +25,7 @@ export default class App extends Component {
 componentDidMount = () => {
   const filmNumber = Math.floor(Math.random() * 7) + 1
   const url = `https://swapi.co/api/films/${filmNumber}/`
-  return fetch(url)
-  .then(response => response.json())
+  return fetchData(url)
   .then(result => filmInfo(result))
   .then(filmText => this.setState(
     { 
