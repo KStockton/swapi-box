@@ -1,35 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Controls should match the snatpshot 1`] = `
+exports[`App should match the snatpshot 1`] = `
 <div
   className="App"
 >
   <header
     className="App-header"
   >
+    <Controls
+      handleCategory={[Function]}
+    />
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer>
     <section>
       <img
         alt="logo"
         className="App-logo"
         src="logo.svg"
       />
-      <h3>
+      <h5>
         Loading have faith...
-      </h3>
+      </h5>
     </section>
-    <Controls
-      handleCategory={[Function]}
-    />
-  </header>
-  <CSSTransition
-    appear={true}
-    classNames="fade"
-    in={true}
-    timeout={600}
-  >
-    <Scroll
-      filmText={Object {}}
-    />
-  </CSSTransition>
+  </footer>
 </div>
 `;

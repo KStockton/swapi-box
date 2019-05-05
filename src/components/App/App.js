@@ -65,12 +65,7 @@ getPeople = () => {
   fetchData('people/')
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
-  .then(peopleResult => {
-      let people = onlyPeople(peopleResult)
-      this.setState({ people, isLoading: false})
-    })
-   
-  
+  .then(people => this.setState({ people, isLoading: false}))
 }
 
 getPlanets(){
