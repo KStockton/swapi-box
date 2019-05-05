@@ -33,7 +33,7 @@ const mockFilm = {
     const result = await fetchData(mockUrl);
     expect(result).toEqual(mockFilm) 
   })
-  it('should return an error if stats is not ok', async () => {
+  it('should return an error if status is not ok', async () => {
     window.fetch = jest.fn().mockImplementation(() =>{
       return Promise.resolve({
         ok: false
@@ -44,34 +44,37 @@ const mockFilm = {
 
   describe('GetSpecies', () =>{
 
-    const mockCharacterSpecies =   {
-      "name": "Luke Skywalker",
-      "homeworld": "https://swapi.co/api/planets/1/",
-      "films": [
-        "https://swapi.co/api/films/2/",
-      ],
-      "species": [
-        "https://swapi.co/api/species/1/"
-      ],
-      "vehicles": [
-        "https://swapi.co/api/vehicles/14/",
-      ]
-    }
+    let mockCharacter 
+    let mockSpecies 
+  
     beforeEach(() =>{
+      mockSpecies = {
+        "name": "Human"
+      }
+
+      mockCharacter = [
+        {
+          "name": "Luke Skywalker",
+          "species": ["https://swapi.co/api/species/1/"]
+        }]
+        
       window.fetch= jest.fn().mockImplementation(() =>{
         return Promise.resolve({
           ok: true,
-          json: () => Promise.resolve()
+          json: () => Promise.resolve(mockSpecies)
         })
       })
     })
     it('Should call fetch with the correct params', () =>{
-      fetchData(mockCharacterSpecies.species[0])
+      getSpecies(mockCharacter)
       expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/species/1/")
     })
-    it('should return a pared response if status is ok', async ()=>{
-      const result = await fetchData(mockCharacterSpecies[0]);
-    expect(result).toEqual(mockCharacterSpecies[0])
+    it.skip('should return a parsed response if status is ok', async ()=>{
+      const result = await getSpecies(mockCharacter);
+    expect(result).toEqual(mockCharacter)
+    })
+    it.skip('should return species when correct params are passed', async() => {
+      getSpecies(mockCharacter)
     })
   })
   
