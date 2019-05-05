@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSpecies, fetchData, getHomeWorld} from './AppHelper.js'
+import { getSpecies, fetchData, getHomeWorld, getResidents} from './AppHelper.js'
 import Scroll from '../Scroll/Scroll.js'
 import logo from '../../logo.svg';
 import './_App.scss';
@@ -75,8 +75,11 @@ getPeople = () => {
 }
 
 getPlanets(){
-this.setState({isLoading: !this.state.isLoading})
-return fetchData('')
+// this.setState({isLoading: !this.state.isLoading})
+const url = `https://swapi.co/api/planets`
+return fetchData(url)
+.then(planets => getResidents(planets.results))
+.then(planets => console.log('gotit', planets))
 }
 
 getVehicles(){
