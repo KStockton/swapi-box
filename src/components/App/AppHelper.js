@@ -36,20 +36,6 @@ function getSpecies(characters){
   return Promise.all(homeWorld)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function getResidents(planets){
   const residents = planets.map(residentOnly => {
 

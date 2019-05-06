@@ -78,7 +78,10 @@ getPlanets(){
 this.setState({isLoading: true })
 const url = `https://swapi.co/api/planets`
 return fetchData(url)
-.then(planets => getResidents(planets.results))
+.then(planets =>
+  //  getResidents(planets.results)
+  console.log('results', planets.results)
+   )
 .then(planets => this.setState({ planets, isLoading: false}))
 }
 
