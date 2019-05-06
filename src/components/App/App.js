@@ -125,7 +125,7 @@ render() {
       in={this.state.isLoading}
       appear={true}
       timeout={600}
-      classNames="fade"
+      classNames="fade-in"
       >
       
       <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 

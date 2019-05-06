@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites Expect component to render without crashing 1`] = `
+<div
+  className="Favorites-btn"
+>
+  <p>
+    View Favorites
+  </p>
+  <p>
+    0
+  </p>
+</div>
+`;

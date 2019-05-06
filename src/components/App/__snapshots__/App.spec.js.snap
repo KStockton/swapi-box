@@ -7,10 +7,10 @@ exports[`App should match the snatpshot 1`] = `
   <header
     className="App-header"
   >
-    <Favorites />
     <Controls
       handleCategory={[Function]}
     />
+    <Favorites />
   </header>
   <Scroll
     filmText={Object {}}
