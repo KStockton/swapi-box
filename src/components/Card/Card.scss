@@ -1,4 +1,6 @@
 .Card-wrapper {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../StarWarsLogo.jpg');
+  background-size: 100% 100%;
   width: 334px;
   height: 266px;
   border: 1px solid black;
@@ -11,10 +13,19 @@
 img {
   height: 29px;
   width: 50px;
+  color: white;
 }
 
 
-h1 {
+
+.Card-info {
   color: white;
-  z-index: -5;
+  text-align: left;
+  margin: 3px 19px;
+  line-height: 43px;
+  font-size: 19px;
+}
+
+.Card-text  {
+  font-weight: 800;
 }

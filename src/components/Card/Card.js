@@ -9,12 +9,12 @@ const Card = ({name, homeworld, species, language, population, topic}) => {
 
   return (
     <article className="Card-wrapper">
-      <h3>Name: <span>{name}</span><img src={noFav} alt="favorite" /></h3>
+      <h3 className="Card-info name"><span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" /></h3>
 
-      <p>HomeWorld: <span>{homeworld}</span></p>
-      <p>Species: <span>{species}</span></p>
-      <p>Language: <span>{language}</span></p>
-      <p>Population: <span>{population}</span></p>
+      <p className="Card-info"><span className="Card-text">Homeworld:</span> {homeworld}</p>
+      <p className="Card-info"><span className="Card-text">Species:</span> {species}</p>
+      <p className="Card-info"><span className="Card-text">Language:</span> {language}</p>
+      <p className="Card-info"><span className="Card-text">Population:</span> {population}</p>
     </article>
   )
 }
