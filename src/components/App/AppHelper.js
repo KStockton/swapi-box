@@ -8,7 +8,6 @@ function fetchData(urlText){
   } else {
     url = urlText
   }
-  console.log('url',url)
   return fetch(url)
     .then(response => {
       if(!response.ok){
@@ -35,20 +34,6 @@ function getSpecies(characters){
   })
   return Promise.all(homeWorld)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getResidents(planets){
   const residents = planets.map(residentOnly => {

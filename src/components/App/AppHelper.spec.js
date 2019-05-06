@@ -1,7 +1,8 @@
 import {
 getHomeWorld,
 getSpecies,
-fetchData
+fetchData,
+getResidents
 } from './AppHelper.js'
 
 describe('fetchData', () => {
@@ -140,14 +141,23 @@ const mockFilm = {
     })
   })
 describe('GetResidents', () => {
+  let mockPlanet
   let mockResident
   beforeEach(() =>{
     mockResident = {
-      "title": "The Empire Strike Back",
-      "openingCrawl": "It is a dark time for the Rebellion",
-      "episode": "5",
-      "releaseDate": "2015-12-11"
+      "name": "Wakanda",
     }
+
+   mockPlanet = [
+          {
+              "name": "Alderaan",
+              "population": "2000000000",
+              "residents": [
+                  "https://swapi.co/api/people/5/"
+              ] 
+          }
+      ]
+    
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -156,8 +166,55 @@ describe('GetResidents', () => {
     })
   })
   it('should be called with the correct', () =>{
-    
+    getResidents(mockPlanet)
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/people/5/")
   })
+  it('should return an error if the status is no ok', async () =>{
+    window.fetch = jest.fn().mockImplementation(()=>{
+      return Promise.resolve({
+        ok: false,
+      })
+    })
+    await expect(getResidents(mockPlanet)).rejects.toEqual(Error('Error fetching data'))
+  })
+  it('should return a promise when passed a resident', async () => {
+
+    const mockPlanet1 = [
+      {
+        "name": "Alderaan",
+        "terrain": "flat",
+        "population": "2000000000",
+        "climate": "temperate",
+        "residents": [
+          "https://swapi.co/api/people/5/"
+        ] 
+      }
+    ]
+    const mockPromise = [
+      {
+        "name": "Alderaan",
+        "terrain": "flat",
+        "population": "2000000000",
+        "climate": "temperate", 
+        "residents": "Wakanda"
+      }
+    ]
+    const result = await getResidents(mockPlanet1)
+    expect(result).toEqual(mockPromise)
+    })
+    it('should return resident if array had no url', () =>{
+      const mockNoResident =  [
+        {
+        "name": "Michael KS",
+        "terrain": "flat",
+        "population": "1",
+        "climate": "temperate", 
+        "residents": []
+      }
+      ]
+      const result = getResidents(mockNoResident)
+      expect(result.residents).toEqual('NA')
+    })
 })
 
 
