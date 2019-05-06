@@ -4,10 +4,14 @@ exports[`Favorites Expect component to render without crashing 1`] = `
 <div
   className="Favorites-btn"
 >
-  <p>
+  <div
+    role="button"
+  >
     View Favorites
-  </p>
-  <p>
+  </div>
+  <p
+    className="Favorites-click"
+  >
     0
   </p>
 </div>

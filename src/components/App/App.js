@@ -6,7 +6,6 @@ import './_App.scss';
 import Controls from '../Controls/Controls.js'
 import CardContainer from '../CardContainer/CardContainer.js'
 import Favorites from '../Favorites/Favorites'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class App extends Component {
   constructor(){
@@ -21,7 +20,6 @@ export default class App extends Component {
     planets: []
   }
 }
-
 
 componentDidMount = () => {
   const filmNumber = Math.floor(Math.random() * 7) + 1
@@ -44,11 +42,10 @@ componentDidMount = () => {
 
 }
 
-
 handleCategory = event => {
   let category = event.target.name
-  this.setState({category})
   this.handleFetch(category)
+  this.setState({category})
 }
 
 handleFetch(usercategory){
@@ -114,22 +111,15 @@ render() {
   return (
     <div className="App">
       <header className="App-header">
+      {initialDisplay}
         <Controls handleCategory={this.handleCategory}/>
         <Favorites />
       </header>
 
       {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
-      <CSSTransition
-      in={this.state.isLoading}
-      appear={true}
-      timeout={600}
-      classNames="fade-in"
-      >
       <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
-      </CSSTransition>
       }
       <footer>
-      {initialDisplay}
       </footer>
     </div>
   );

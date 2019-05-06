@@ -5,8 +5,8 @@ const Favorites = () => {
 
   return (
     <div className="Favorites-btn">
-      <p>View Favorites</p>
-      <p>0</p>
+      <div role="button" >View Favorites</div>
+      <p className="Favorites-click">0</p>
     </div>
   )
 }

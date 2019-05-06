@@ -61,7 +61,6 @@ function getResidents(planets){
     }
     }
     ) 
-    console.log('m',residents)
   return Promise.all(residents)
 }
 

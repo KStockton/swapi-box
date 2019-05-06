@@ -1,6 +1,19 @@
 .Favorites-btn {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: right;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid white;
+    width: 12rem;
+    padding-left: 15px;
+    border-radius: 12px;
+    margin: 26px;
+    font-size: 19px;
+    text-align: center
+}
+.Favorites-btn:hover{
+  color: yellow;
+}
+
+.Favorites-click {
+ margin-left: 3px
 }
