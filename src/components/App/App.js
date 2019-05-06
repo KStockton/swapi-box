@@ -91,9 +91,8 @@ return fetchData(url)
 .then(result => result.results.map(vehicle => {
   return { 
     name: vehicle.name, 
-    passengers: 
-    vehicle.passengers,
-    class: vehicle.vehicle_class, 
+    passengers: vehicle.passengers,
+    vehicleClass: vehicle.vehicle_class, 
     model: vehicle.model
   }
 }
