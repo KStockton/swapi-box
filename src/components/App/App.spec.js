@@ -22,7 +22,7 @@ describe('App', () => {
         category: '',
         people: [],
         vehicles: '',
-        planets: ''
+        planets: []
       }
       expect(wrapper.state()).toEqual(defaultState)
     });
