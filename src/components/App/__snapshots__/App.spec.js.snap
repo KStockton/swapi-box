@@ -10,6 +10,67 @@ exports[`App should match the snatpshot 1`] = `
     <Controls
       handleCategory={[Function]}
     />
+    <Favorites />
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer>
+    <section>
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <h5>
+        Loading have faith...
+      </h5>
+    </section>
+  </footer>
+</div>
+`;
+
+exports[`App should render Scroll component when the category is an empty string 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <Controls
+      handleCategory={[Function]}
+    />
+    <Favorites />
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer>
+    <section>
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <h5>
+        Loading have faith...
+      </h5>
+    </section>
+  </footer>
+</div>
+`;
+
+exports[`App should render is loading if the isLoading is true 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <Controls
+      handleCategory={[Function]}
+    />
+    <Favorites />
   </header>
   <Scroll
     filmText={Object {}}

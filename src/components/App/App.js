@@ -5,6 +5,7 @@ import logo from '../../logo.svg';
 import './_App.scss';
 import Controls from '../Controls/Controls.js'
 import CardContainer from '../CardContainer/CardContainer.js'
+import Favorites from '../Favorites/Favorites'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class App extends Component {
@@ -90,9 +91,8 @@ return fetchData(url)
 .then(result => result.results.map(vehicle => {
   return { 
     name: vehicle.name, 
-    passengers: 
-    vehicle.passengers,
-    class: vehicle.vehicle_class, 
+    passengers: vehicle.passengers,
+    vehicleClass: vehicle.vehicle_class, 
     model: vehicle.model
   }
 }
@@ -102,7 +102,6 @@ return fetchData(url)
 }
 
 render() {
-  console.log(this.state)
   const categoryStatus = this.state.category === ''
   let initialDisplay
   if(this.state.isLoading)
@@ -116,6 +115,7 @@ render() {
     <div className="App">
       <header className="App-header">
         <Controls handleCategory={this.handleCategory}/>
+        <Favorites />
       </header>
 
       {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
@@ -123,15 +123,13 @@ render() {
       in={this.state.isLoading}
       appear={true}
       timeout={600}
-      classNames="fade"
+      classNames="fade-in"
       >
-      
-      <CardContainer category={this.state[this.state.category]}/> 
+      <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
       </CSSTransition>
       }
       <footer>
       {initialDisplay}
-
       </footer>
     </div>
   );

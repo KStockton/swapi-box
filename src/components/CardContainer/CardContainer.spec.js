@@ -1,6 +1,10 @@
 import React from 'react'
 import CardContainer from './CardContainer.js';
 import { shallow } from 'enzyme';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() })
 
 const mockProp = [
   {
@@ -25,7 +29,7 @@ describe('CardContainer', () => {
     wrapper = shallow(<CardContainer category={mockProp}/>)
   })
 
-  it.skip('should render correctly without crashing', () => {
+  it('should render correctly without crashing', () => {
     expect(wrapper).toMatchSnapshot()
   })
   
