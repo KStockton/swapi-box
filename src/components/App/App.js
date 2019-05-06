@@ -86,16 +86,14 @@ return fetchData(url)
 }
 
 getVehicles(){
+  const url = `https://swapi.co/api/vehicles`
 
 }
 
 
 
 render() {
-  console.log(this.state.filmText)
-
   const categoryStatus = this.state.category === ''
-  
   let initialDisplay
   if(this.state.isLoading)
    initialDisplay = 

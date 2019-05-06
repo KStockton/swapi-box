@@ -8,7 +8,6 @@ function fetchData(urlText){
   } else {
     url = urlText
   }
-  console.log('url',url)
   return fetch(url)
     .then(response => {
       if(!response.ok){

@@ -177,7 +177,7 @@ describe('GetResidents', () => {
     })
     await expect(getResidents(mockPlanet)).rejects.toEqual(Error('Error fetching data'))
   })
-  it('should return a promise when passed residence', async () => {
+  it('should return a promise when passed a resident', async () => {
 
     const mockPlanet1 = [
       {
@@ -201,6 +201,19 @@ describe('GetResidents', () => {
     ]
     const result = await getResidents(mockPlanet1)
     expect(result).toEqual(mockPromise)
+    })
+    it('should return resident if array had no url', () =>{
+      const mockNoResident =  [
+        {
+        "name": "Michael KS",
+        "terrain": "flat",
+        "population": "1",
+        "climate": "temperate", 
+        "residents": []
+      }
+      ]
+      const result = getResidents(mockNoResident)
+      expect(result.residents).toEqual('NA')
     })
 })
 
