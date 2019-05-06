@@ -5,7 +5,6 @@ const shortid = require('shortid')
 
 const Container = ({category, topic}) => {
   let cards = category.map(item =>{
-    console.log('item',item)
    return <Card {...item} key={shortid.generate()} topic={topic}/>
   })
   

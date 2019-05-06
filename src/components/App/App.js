@@ -102,7 +102,6 @@ return fetchData(url)
 }
 
 render() {
-  console.log(this.state)
   const categoryStatus = this.state.category === ''
   let initialDisplay
   if(this.state.isLoading)
@@ -126,7 +125,6 @@ render() {
       timeout={600}
       classNames="fade-in"
       >
-      
       <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
       </CSSTransition>
       }

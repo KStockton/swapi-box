@@ -32,6 +32,16 @@ describe('App', () => {
       wrapper.instance().handleCategory(event)
       expect(wrapper.state('category')).toEqual('people')
     })
+
+    it('should render is loading if the isLoading is true', () => {
+      wrapper.setState({isLoading: true})
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should render Scroll component when the category is an empty string', () => {
+      wrapper.setState({category: ""})
+      expect(wrapper).toMatchSnapshot()
+    })
+  
     
 })
 
