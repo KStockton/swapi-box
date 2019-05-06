@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Controls from './Controls';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';

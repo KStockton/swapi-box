@@ -202,17 +202,18 @@ describe('GetResidents', () => {
     const result = await getResidents(mockPlanet1)
     expect(result).toEqual(mockPromise)
     })
-    it('should return resident if array had no url', () =>{
+    it.skip('should return resident if array had no url', () =>{
       const mockNoResident =  [
         {
         "name": "Michael KS",
         "terrain": "flat",
         "population": "1",
         "climate": "temperate", 
-        "residents": [""]
+        "residents": [ ]
       }]
-      let result = getResidents(mockNoResident)
-      expect(result).toHaveReturned()
+      
+
+      expect(getResidents(mockNoResident)).toContain("NA")
     })
 })
 

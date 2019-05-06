@@ -1,15 +1,20 @@
 import React from 'react'
 import './Card.scss'
+import noFav from '../../noFav.svg'
+import fav from '../../fav.svg'
 
-const Card = ({name, homeworld, species, language, population}) => {
+
+
+const Card = ({name, homeworld, species, language, population, topic}) => {
 
   return (
     <article className="Card-wrapper">
-      <h1>Name: {name}</h1>
-      <h2>HomeWorld: {homeworld}</h2>
-      <h2>Species: {species}</h2>
-      <h2>Language: {language}</h2>
-      <h2>Population:{population}</h2>
+      <h3>Name: <span>{name}</span><img src={noFav} alt="favorite" /></h3>
+
+      <p>HomeWorld: <span>{homeworld}</span></p>
+      <p>Species: <span>{species}</span></p>
+      <p>Language: <span>{language}</span></p>
+      <p>Population: <span>{population}</span></p>
     </article>
   )
 }

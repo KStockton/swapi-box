@@ -5,6 +5,7 @@ import logo from '../../logo.svg';
 import './_App.scss';
 import Controls from '../Controls/Controls.js'
 import CardContainer from '../CardContainer/CardContainer.js'
+import Favorite from '../Favorite/Favorite.js'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export default class App extends Component {
@@ -115,7 +116,9 @@ render() {
   return (
     <div className="App">
       <header className="App-header">
+        <Favorite />
         <Controls handleCategory={this.handleCategory}/>
+
       </header>
 
       {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
@@ -126,12 +129,11 @@ render() {
       classNames="fade"
       >
       
-      <CardContainer category={this.state[this.state.category]}/> 
+      <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
       </CSSTransition>
       }
       <footer>
       {initialDisplay}
-
       </footer>
     </div>
   );

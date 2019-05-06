@@ -8,7 +8,7 @@ const Scroll = ( { filmText } ) => {
   let numeral = romanNumerals[episode - 1]
 return (
   <article className="Scroll-article">
-    <p>{header}</p>
+    <p className="Scroll-galaxy-text">{header}</p>
       <div className="filmtext-wrapper-before">
         <div className="filmtext-wrapper-after">
           <h1>{title}</h1>
