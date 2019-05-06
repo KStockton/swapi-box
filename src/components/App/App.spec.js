@@ -21,7 +21,7 @@ describe('App', () => {
         isLoading: true,
         category: '',
         people: [],
-        vehicles: '',
+        vehicles: [],
         planets: []
       }
       expect(wrapper.state()).toEqual(defaultState)

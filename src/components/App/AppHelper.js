@@ -61,6 +61,7 @@ function getResidents(planets){
     }
     }
     ) 
+    console.log('m',residents)
   return Promise.all(residents)
 }
 
@@ -69,5 +70,5 @@ export {
   getHomeWorld,
   getSpecies,
   fetchData,
-  getResidents
+  getResidents,
 }

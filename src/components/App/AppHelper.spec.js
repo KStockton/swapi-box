@@ -209,11 +209,10 @@ describe('GetResidents', () => {
         "terrain": "flat",
         "population": "1",
         "climate": "temperate", 
-        "residents": []
-      }
-      ]
-      const result = getResidents(mockNoResident)
-      expect(result.residents).toEqual('NA')
+        "residents": [""]
+      }]
+      let result = getResidents(mockNoResident)
+      expect(result).toHaveReturned()
     })
 })
 
