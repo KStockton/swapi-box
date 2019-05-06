@@ -17,7 +17,7 @@ export default class App extends Component {
     category: '',
     people: [],
     vehicles: '',
-    planets: ''
+    planets: []
   }
 }
 
@@ -75,11 +75,11 @@ getPeople = () => {
 }
 
 getPlanets(){
-// this.setState({isLoading: !this.state.isLoading})
+this.setState({isLoading: true })
 const url = `https://swapi.co/api/planets`
 return fetchData(url)
 .then(planets => getResidents(planets.results))
-.then(planets => console.log('gotit', planets))
+.then(planets => this.setState({ planets, isLoading: false}))
 }
 
 getVehicles(){

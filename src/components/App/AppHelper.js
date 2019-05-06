@@ -51,17 +51,6 @@ function getSpecies(characters){
 
 
 function getResidents(planets){
- 
-
-  // console.log('yep', planets)
-
-  // const residentsOnly = planets.filter(planet => {
-  //   if(planet.residents.length > 0)
-  //   return planet
-  // })
-
-// console.log(residentsOnly)
-
   const residents = planets.map(residentOnly => {
 
     if(residentOnly.residents.length > 0){

@@ -20,7 +20,7 @@ const mockFilm = {
   });
 })
   
-  it('should be call fetch with the correct params', ()=>{
+  it('should be called fetch with the correct params', ()=>{
     const filmNumber = 1
     const mockUrl = `https://swapi.co/api/films/${filmNumber}/`
     fetchData(mockUrl)
@@ -139,17 +139,26 @@ const mockFilm = {
       expect(result).toEqual(mockHomeworldPromise)
     })
   })
-describe('filmInfo', () => {
-  let mockFilm
+describe('GetResidents', () => {
+  let mockResident
   beforeEach(() =>{
-    mockFilm = {
+    mockResident = {
       "title": "The Empire Strike Back",
       "openingCrawl": "It is a dark time for the Rebellion",
       "episode": "5",
       "releaseDate": "2015-12-11"
     }
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResident)
+      })
+    })
   })
-  
+  it('should be called with the correct', () =>{
+    
+  })
 })
+
 
 
