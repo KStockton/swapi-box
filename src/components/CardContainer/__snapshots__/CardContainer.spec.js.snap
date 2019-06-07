@@ -4,10 +4,9 @@ exports[`CardContainer should render correctly without crashing 1`] = `
 <section
   className="CardContainer-wrapper"
 >
-  <h1 />
   <Card
     homeworld="Tatooine"
-    key="5FxEMhgcV"
+    key="tp8z60oXA"
     language="Galactic Basic"
     name="Luke Skywalker"
     population="200000"
@@ -15,7 +14,7 @@ exports[`CardContainer should render correctly without crashing 1`] = `
   />
   <Card
     homeworld="Tatooine"
-    key="5NGirNtG1b"
+    key="uc1C0bxmi7"
     language="n/a"
     name="C-3PO"
     population="200000"

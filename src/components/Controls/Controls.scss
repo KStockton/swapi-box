@@ -21,3 +21,69 @@
 .vehicles:hover {
   background-color: yellow;
 }
+
+.vehicles-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    width: 22rem;
+  }
+  .Controls-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px auto;
+  }
+  .Controls-btn {
+    background-color: yellow;
+    display: flex;
+    height: 3rem;
+    margin-bottom: 3px;
+  }
+
+  .filmtext-wrapper-after {
+    position: absolute;
+    top: 100%;
+    right: 27%;
+    animation: scrollCrawl 250s linear;
+    animation-iteration-count: 1;
+    color: #ffd900;
+    letter-spacing: -2px;
+    width: 11rem;
+    font-size: 106%;
+    text-align: justify;
+    text-transform: uppercase;
+    font-family: Pathway Gothic One sans-serif;
+    background: linear-gradient(0deg, transparent, #0000001a 75%);
+    line-height: 105%;
+  }
+
+  .filmtext-wrapper-before {
+    position: fixed;
+    left: 5%;
+    bottom: 0%;
+    overflow: hidden;
+    transform: perspective(250px) rotateX(41deg);
+    height: 80%;
+    width: 90%;
+}
+.Favorites-btn {
+  display: flex;
+  flex-direction: row;
+    align-items: center;
+    border: 2px solid white;
+    width: 172px;
+    padding-left: 15px;
+    border-radius: 12px;
+    margin: 26px;
+    font-size: 17px;
+    position: absolute;
+    text-align: center;
+    right: 3%;
+    height: 41px;
+}
+}

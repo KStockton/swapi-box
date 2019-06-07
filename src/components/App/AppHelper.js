@@ -30,7 +30,12 @@ function getSpecies(characters){
  function getHomeWorld(characterBios){
   const homeWorld = characterBios.map(bio => {
     return fetchData(bio.homeworld)
-           .then(homeworlds => ({name: bio.name, homeworld: homeworlds.name, population: homeworlds.population, species: bio.species.name, language: bio.species.language }))
+           .then(homeworlds => ({
+             name: bio.name, 
+             homeworld: homeworlds.name, 
+             population: homeworlds.population, 
+             species: bio.species.name, 
+             language: bio.species.language }))
   })
   return Promise.all(homeWorld)
 }
@@ -61,7 +66,6 @@ function getResidents(planets){
     }
     }
     ) 
-    console.log('m',residents)
   return Promise.all(residents)
 }
 

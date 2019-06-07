@@ -51,7 +51,6 @@ const mockFilm = {
       mockSpecies = {
         "name": "Human"
       }
-
       mockCharacter = [
         {
           "name": "Luke Skywalker",
@@ -213,7 +212,7 @@ describe('GetResidents', () => {
       }]
       
 
-      expect(getResidents(mockNoResident)).toContain("NA")
+      expect(getResidents(mockNoResident.residents)).toContain("NA")
     })
 })
 

@@ -10,12 +10,6 @@ exports[`App should match the snatpshot 1`] = `
     <Controls
       handleCategory={[Function]}
     />
-    <Favorites />
-  </header>
-  <Scroll
-    filmText={Object {}}
-  />
-  <footer>
     <section>
       <img
         alt="logo"
@@ -26,7 +20,11 @@ exports[`App should match the snatpshot 1`] = `
         Loading have faith...
       </h5>
     </section>
-  </footer>
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer />
 </div>
 `;
 
@@ -40,12 +38,6 @@ exports[`App should render Scroll component when the category is an empty string
     <Controls
       handleCategory={[Function]}
     />
-    <Favorites />
-  </header>
-  <Scroll
-    filmText={Object {}}
-  />
-  <footer>
     <section>
       <img
         alt="logo"
@@ -56,7 +48,11 @@ exports[`App should render Scroll component when the category is an empty string
         Loading have faith...
       </h5>
     </section>
-  </footer>
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer />
 </div>
 `;
 
@@ -70,12 +66,6 @@ exports[`App should render is loading if the isLoading is true 1`] = `
     <Controls
       handleCategory={[Function]}
     />
-    <Favorites />
-  </header>
-  <Scroll
-    filmText={Object {}}
-  />
-  <footer>
     <section>
       <img
         alt="logo"
@@ -86,6 +76,10 @@ exports[`App should render is loading if the isLoading is true 1`] = `
         Loading have faith...
       </h5>
     </section>
-  </footer>
+  </header>
+  <Scroll
+    filmText={Object {}}
+  />
+  <footer />
 </div>
 `;

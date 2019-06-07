@@ -10,7 +10,6 @@ const Container = ({category, topic}) => {
   
   return (
     <section className="CardContainer-wrapper">
-    <h1>{topic}</h1>
        {cards}
     </section>
   )

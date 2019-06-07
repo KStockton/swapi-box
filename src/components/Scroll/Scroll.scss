@@ -8,7 +8,7 @@
   color: white;
   opacity: 0;
   z-index: 1;
-  animation: fadeTitle 4s ease-out;
+  animation: fadeTitle 2s ease-out;
   position: fixed;
   left: 36%;
   margin: 9px 7px;
@@ -37,7 +37,7 @@
 .filmtext-wrapper-after {
   position: absolute;
   top: 100%;
-  right: 35%;
+  right: 37%;
   animation: scrollCrawl 50s linear;
   animation-iteration-count: 1;
   color: #ffd900;

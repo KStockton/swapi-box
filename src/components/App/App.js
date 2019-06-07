@@ -5,8 +5,7 @@ import logo from '../../logo.svg';
 import './_App.scss';
 import Controls from '../Controls/Controls.js'
 import CardContainer from '../CardContainer/CardContainer.js'
-import Favorites from '../Favorites/Favorites'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import Favorites from '../Favorites/Favorites'
 
 export default class App extends Component {
   constructor(){
@@ -18,10 +17,10 @@ export default class App extends Component {
     category: '',
     people: [],
     vehicles: [],
-    planets: []
+    planets: [],
+    error: ''
   }
 }
-
 
 componentDidMount = () => {
   const filmNumber = Math.floor(Math.random() * 7) + 1
@@ -37,18 +36,17 @@ componentDidMount = () => {
     }
     this.setState({ 
           filmText,
-          isLoading: false 
+          isLoading: false
         })
   })
-  .catch(error => console.log(error))
+  .catch(error => this.setState({error}))
 
 }
 
-
 handleCategory = event => {
   let category = event.target.name
-  this.setState({category})
   this.handleFetch(category)
+  this.setState({category})
 }
 
 handleFetch(usercategory){
@@ -73,6 +71,7 @@ getPeople = () => {
   .then(characters => getSpecies(characters.results))
   .then(charactersData => getHomeWorld(charactersData))
   .then(people => this.setState({ people, isLoading: false}))
+  .catch(error => this.setState({error}))
 }
 
 getPlanets(){
@@ -81,7 +80,7 @@ const url = `https://swapi.co/api/planets/`
 return fetchData(url)
 .then(planets => getResidents(planets.results))
 .then(planets => this.setState({ planets, isLoading: false}))
-
+.catch(error => this.setState({error}))
 }
 
 getVehicles(){
@@ -115,21 +114,13 @@ render() {
     <div className="App">
       <header className="App-header">
         <Controls handleCategory={this.handleCategory}/>
-        <Favorites />
+      {initialDisplay}
+        {/* <Favorites /> */}
       </header>
-
       {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
-      <CSSTransition
-      in={this.state.isLoading}
-      appear={true}
-      timeout={600}
-      classNames="fade-in"
-      >
       <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
-      </CSSTransition>
       }
       <footer>
-      {initialDisplay}
       </footer>
     </div>
   );

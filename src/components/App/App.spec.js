@@ -4,10 +4,11 @@ import App from './App';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
+
+const mockHandleFetch = jest.fn()
+
 describe('App', () => {
   let wrapper
-
-  
   beforeEach(() => {
     wrapper = shallow(<App />) 
     })
@@ -18,6 +19,7 @@ describe('App', () => {
     it('should have a default state', () => {
       const defaultState = {
         filmText: {},
+        error: '',
         isLoading: true,
         category: '',
         people: [],
@@ -41,7 +43,11 @@ describe('App', () => {
       wrapper.setState({category: ""})
       expect(wrapper).toMatchSnapshot()
     })
-  
+    it.skip('should call handleFetch when handleCategory is invoked', () => {
+      let mockEvent = { target: { name : 'people'}}
+      wrapper.instance().handleCategory(mockEvent)
+      expect(mockHandleFetch).toBeCalled()
+    })
     
 })
 
