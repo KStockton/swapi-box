@@ -4,7 +4,9 @@ exports[`Controls Expect component to render without crashing 1`] = `
 <section
   className="Controls-wrapper"
 >
-  <h1>
+  <h1
+    className="title"
+  >
     Swapi-Box
   </h1>
   <button
@@ -12,21 +14,45 @@ exports[`Controls Expect component to render without crashing 1`] = `
     name="people"
     onClick={[MockFunction]}
   >
-    People
+    <div
+      className="vehicles-wrapper"
+    >
+      <img
+        alt="star-trooper"
+        src="Stroop.svg"
+      />
+      People
+    </div>
   </button>
   <button
     className="Controls-btn planets"
     name="planets"
     onClick={[MockFunction]}
   >
-    Planets
+    <div
+      className="vehicles-wrapper"
+    >
+      <img
+        alt="deathstar"
+        src="DeathStar.svg"
+      />
+      Planets
+    </div>
   </button>
   <button
     className="Controls-btn vehicles"
     name="vehicles"
     onClick={[MockFunction]}
   >
-    Vehicles
+    <div
+      className="vehicles-wrapper"
+    >
+      <img
+        alt="falcon"
+        src="Falcon.svg"
+      />
+      Vehicles
+    </div>
   </button>
 </section>
 `;

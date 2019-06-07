@@ -19,6 +19,7 @@ describe('App', () => {
     it('should have a default state', () => {
       const defaultState = {
         filmText: {},
+        error: '',
         isLoading: true,
         category: '',
         people: [],
