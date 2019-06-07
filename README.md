@@ -7,7 +7,7 @@ A site for users to browse Star Wars information pulled from the Star Wars API. 
 
 ## Installing / Lets Get Started
 ```bash
-git clone [remote-address] [what you want to name the repo]
+git clone [https://github.com/KStockton/swapi-box] [what you want to name the repo]
 ```
 
 Once you have cloned the repo, install the library dependencies. Run:
