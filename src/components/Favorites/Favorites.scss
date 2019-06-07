@@ -1,14 +1,17 @@
 .Favorites-btn {
   display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 2px solid white;
-    width: 12rem;
-    padding-left: 15px;
-    border-radius: 12px;
-    margin: 26px;
-    font-size: 19px;
-    text-align: center
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid white;
+  width: 172px;
+  padding-left: 15px;
+  border-radius: 12px;
+  margin: 26px;
+  font-size: 17px;
+  position: absolute;
+  text-align: center;
+  right: 3%;
+  height: 41px;
 }
 .Favorites-btn:hover{
   color: yellow;

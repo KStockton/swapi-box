@@ -1,14 +1,15 @@
-import React from 'react'
-import './Favorites.scss'
+//Coming 4 quarter 2019
 
-const Favorites = () => {
+// import React from 'react'
+// import './Favorites.scss'
 
-  return (
-    <div className="Favorites-btn">
-      <div role="button" >View Favorites</div>
-      <p className="Favorites-click">0</p>
-    </div>
-  )
-}
+// const Favorites = () => {
 
-export default Favorites
+//   return (
+//     <div className="Favorites-btn">
+//       <div role="button" >View Favorites</div>
+//     </div>
+//   )
+// }
+
+// export default Favorites
