@@ -46,6 +46,7 @@
       "src/components/**/*.{js,jsx}",
       "!src/index.js",
       "!src/setupTest.js",
-      "!src/serviceWorker.js"]
+      "!src/serviceWorker.js"
+    ]
   }
 }
