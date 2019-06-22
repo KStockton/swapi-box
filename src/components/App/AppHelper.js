@@ -1,7 +1,7 @@
 
 
 function fetchData(urlText){
-  let url 
+  let url; 
 
   if(urlText === 'people/' ){
     url = `https:/swapi.co/api/${urlText}`
@@ -9,14 +9,15 @@ function fetchData(urlText){
     url = urlText
   }
   return fetch(url)
-    .then(response => {
+    
+  .then(response => {
       if(!response.ok){
         throw Error('Error fetching data')
       } else {
         return response.json()
       }
-})
-}
+  });
+};
 
 function getSpecies(characters){
   const completeSpeciesPromise = characters.map(character =>{
@@ -25,7 +26,7 @@ function getSpecies(characters){
            .then(species => ({...character, species}))
   })
   return Promise.all(completeSpeciesPromise)
-}
+};
 
  function getHomeWorld(characterBios){
    
@@ -39,7 +40,7 @@ function getSpecies(characters){
              language: bio.species.language }))
   })
   return Promise.all(homeWorld)
-}
+};
 
 function getResidents(planets){
   // eslint-disable-next-line array-callback-return
