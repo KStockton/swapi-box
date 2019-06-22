@@ -51,9 +51,9 @@ handleCategory = name => {
 }
 
 handleFetch(usercategory){
+
   switch(usercategory) {
     case 'people':
-      console.log('yes')
       this.getPeople();
       break;
     case 'vehicles':
