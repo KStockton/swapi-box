@@ -4,7 +4,6 @@ import './CardContainer.scss'
 const shortid = require('shortid')
 
 const CardContainer = ({category, topic}) => {
-  console.log('hi')
   let cards = category.map(item =>{
    return <Card {...item} key={shortid.generate()} topic={topic}/>
   })
