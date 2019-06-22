@@ -42,10 +42,11 @@ function getSpecies(characters){
 
 function getResidents(planets){
   const residents = planets.map(residentOnly => {
+ 
+    if(residentOnly.residents.length > 0) {
+      for (let i = 0; i < residentOnly.residents.length; i++)
+      return fetchData(residentOnly.residents[i])
 
-    if(residentOnly.residents.length > 0){
-    for (let i = 0; i < residentOnly.residents.length; i++)
-    return fetchData(residentOnly.residents[i])
     .then(results => (
       {
         name: residentOnly.name, 
@@ -56,16 +57,16 @@ function getResidents(planets){
       }
     )
      ) } else {
-      return {
-        name: residentOnly.name, 
-        terrain: residentOnly.terrain, 
-        population: residentOnly.population, 
-        climate: residentOnly.climate, 
-        residents: `NA`
-      }
-    }
-    }
-    ) 
+          return {
+            name: residentOnly.name, 
+            terrain: residentOnly.terrain, 
+            population: residentOnly.population, 
+            climate: residentOnly.climate, 
+            residents: `NA`
+          }
+         }
+         return 
+       }) 
   return Promise.all(residents)
 }
 

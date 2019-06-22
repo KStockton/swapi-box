@@ -3,7 +3,8 @@ import Card from '../Card/Card'
 import './CardContainer.scss'
 const shortid = require('shortid')
 
-const Container = ({category, topic}) => {
+const CardContainer = ({category, topic}) => {
+  console.log('hi')
   let cards = category.map(item =>{
    return <Card {...item} key={shortid.generate()} topic={topic}/>
   })
@@ -15,4 +16,4 @@ const Container = ({category, topic}) => {
   )
 }
 
-export default Container
+export default CardContainer
