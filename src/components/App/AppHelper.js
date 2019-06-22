@@ -28,6 +28,7 @@ function getSpecies(characters){
 }
 
  function getHomeWorld(characterBios){
+   
   const homeWorld = characterBios.map(bio => {
     return fetchData(bio.homeworld)
            .then(homeworlds => ({
@@ -41,11 +42,13 @@ function getSpecies(characters){
 }
 
 function getResidents(planets){
+  // eslint-disable-next-line array-callback-return
   const residents = planets.map(residentOnly => {
+ 
+    if(residentOnly.residents.length > 0) {
+      for (let i = 0; i < residentOnly.residents.length; i++)
+      return fetchData(residentOnly.residents[i])
 
-    if(residentOnly.residents.length > 0){
-    for (let i = 0; i < residentOnly.residents.length; i++)
-    return fetchData(residentOnly.residents[i])
     .then(results => (
       {
         name: residentOnly.name, 
@@ -53,19 +56,18 @@ function getResidents(planets){
         population: residentOnly.population, 
         climate: residentOnly.climate, 
         residents: results.name
-      }
-    )
+      })
+
      ) } else {
-      return {
-        name: residentOnly.name, 
-        terrain: residentOnly.terrain, 
-        population: residentOnly.population, 
-        climate: residentOnly.climate, 
-        residents: `NA`
-      }
-    }
-    }
-    ) 
+          return {
+            name: residentOnly.name, 
+            terrain: residentOnly.terrain, 
+            population: residentOnly.population, 
+            climate: residentOnly.climate, 
+            residents: `NA`
+          }
+         }
+       }) 
   return Promise.all(residents)
 }
 

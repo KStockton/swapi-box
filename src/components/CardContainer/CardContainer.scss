@@ -4,11 +4,18 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 90px auto;
-  height: 104vh;
+  height: 100%;
   background: #edfffd21;
-  width: 99vw;
+  width: 100vw;
   border-radius: 8px;
   padding-top: 43px;
+  background-color: black;
 }
 
+@media only screen and (max-width: 800px) {
 
+  .CardContainer-wrapper {
+  background: #edfffd21;
+  height: 100%;
+  }
+}

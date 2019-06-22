@@ -43,16 +43,17 @@ componentDidMount = () => {
 
 }
 
-handleCategory = event => {
-  let category = event.target.name
-  this.handleFetch(category)
-  this.setState({category})
+handleCategory = name => {
+  // const { name } = event.target
+  // let category = event.target.name
+  this.handleFetch(name)
+  this.setState({category: name})
 }
 
 handleFetch(usercategory){
-
   switch(usercategory) {
     case 'people':
+      console.log('yes')
       this.getPeople();
       break;
     case 'vehicles':
@@ -75,33 +76,34 @@ getPeople = () => {
 }
 
 getPlanets(){
-this.setState({isLoading: true })
-const url = `https://swapi.co/api/planets/`
-return fetchData(url)
-.then(planets => getResidents(planets.results))
-.then(planets => this.setState({ planets, isLoading: false}))
-.catch(error => this.setState({error}))
+  this.setState({isLoading: true })
+  const url = `https://swapi.co/api/planets/`
+  return fetchData(url)
+  .then(planets => getResidents(planets.results))
+  .then(planets => this.setState({ planets, isLoading: false}))
+  .catch(error => this.setState({error}))
 }
 
 getVehicles(){
   this.setState({isLoading: true})
   const url = `https://swapi.co/api/vehicles/`
-return fetchData(url)
-.then(result => result.results.map(vehicle => {
-  return { 
-    name: vehicle.name, 
-    passengers: vehicle.passengers,
-    vehicleClass: vehicle.vehicle_class, 
-    model: vehicle.model
+  return fetchData(url)
+  .then(result => result.results.map(vehicle => {
+    return { 
+      name: vehicle.name, 
+      passengers: vehicle.passengers,
+      vehicleClass: vehicle.vehicle_class, 
+      model: vehicle.model
+    }
   }
-}
 ))
 
-.then(vehicles => this.setState({vehicles, isLoading: false}))
+  .then(vehicles => this.setState({vehicles, isLoading: false}))
 }
 
 render() {
-  const categoryStatus = this.state.category === ''
+  const { category } = this.state
+  // const categoryStatus = this.state.category === ''
   let initialDisplay
   if(this.state.isLoading)
    initialDisplay = 
@@ -114,11 +116,12 @@ render() {
     <div className="App">
       <header className="App-header">
         <Controls handleCategory={this.handleCategory}/>
-      {initialDisplay}
+        {initialDisplay}
         {/* <Favorites /> */}
       </header>
-      {categoryStatus ? <Scroll filmText={this.state.filmText} />: 
-      <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
+      { category === '' ? 
+        <Scroll filmText={this.state.filmText} /> : 
+        <CardContainer category={this.state[this.state.category]} topic={this.state.category}/> 
       }
       <footer>
       </footer>

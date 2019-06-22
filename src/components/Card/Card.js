@@ -1,7 +1,7 @@
 import React from 'react'
 import './Card.scss'
 import noFav from '../../noFav.svg'
-import fav from '../../fav.svg'
+// import fav from '../../fav.svg'
 import PropTypes from 'prop-types'
 
 
