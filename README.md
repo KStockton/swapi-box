@@ -1,5 +1,7 @@
 # Welcome to Swapi-Box
 
+Live Page: https://kstockton.github.io/swapi-box/
+
 ## The Goals and Objectives of this project is as below:
 
 A site for users to browse Star Wars information pulled from the Star Wars API. This project utilizes used asynchronous JavaScript and nested fetch calls.
