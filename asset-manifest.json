@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/swapi-box/static/css/main.bf7f810f.chunk.css",
+    "main.js": "/swapi-box/static/js/main.976d5a5a.chunk.js",
+    "main.js.map": "/swapi-box/static/js/main.976d5a5a.chunk.js.map",
+    "runtime~main.js": "/swapi-box/static/js/runtime~main.a3482073.js",
+    "runtime~main.js.map": "/swapi-box/static/js/runtime~main.a3482073.js.map",
+    "static/js/2.917bba69.chunk.js": "/swapi-box/static/js/2.917bba69.chunk.js",
+    "static/js/2.917bba69.chunk.js.map": "/swapi-box/static/js/2.917bba69.chunk.js.map",
+    "index.html": "/swapi-box/index.html",
+    "precache-manifest.16d454229fd33cfe79825f01ec3009bb.js": "/swapi-box/precache-manifest.16d454229fd33cfe79825f01ec3009bb.js",
+    "service-worker.js": "/swapi-box/service-worker.js",
+    "static/css/main.bf7f810f.chunk.css.map": "/swapi-box/static/css/main.bf7f810f.chunk.css.map",
+    "static/media/DeathStar.svg": "/swapi-box/static/media/DeathStar.e7f35859.svg",
+    "static/media/Falcon.svg": "/swapi-box/static/media/Falcon.fbdbc00b.svg",
+    "static/media/Card.scss": "/swapi-box/static/media/StarWarsLogo.6f56c0f1.jpg",
+    "static/media/Stroop.svg": "/swapi-box/static/media/Stroop.0043575e.svg",
+    "static/media/logo.svg": "/swapi-box/static/media/logo.5d5d9eef.svg",
+    "static/media/noFav.svg": "/swapi-box/static/media/noFav.d072b762.svg"
+  }
+}
