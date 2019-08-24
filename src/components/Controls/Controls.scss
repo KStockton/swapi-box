@@ -8,6 +8,7 @@
   font-family: Orbitron;
   padding-top: 3px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .people:hover {
@@ -40,10 +41,10 @@
     margin: 0px auto;
   }
   .Controls-btn {
-    background-color: yellow;
     display: flex;
     height: 3rem;
-    margin-bottom: 3px;
+    width: 185px;
+    margin-bottom: 27px;
   }
 
   .filmtext-wrapper-after {
@@ -75,16 +76,16 @@
 .Favorites-btn {
   display: flex;
   flex-direction: row;
-    align-items: center;
-    border: 2px solid white;
-    width: 172px;
-    padding-left: 15px;
-    border-radius: 12px;
-    margin: 26px;
-    font-size: 17px;
-    position: absolute;
-    text-align: center;
-    right: 3%;
-    height: 41px;
+  align-items: center;
+  border: 2px solid white;
+  width: 172px;
+  padding-left: 15px;
+  border-radius: 12px;
+  margin: 26px;
+  font-size: 17px;
+  position: absolute;
+  text-align: center;
+  right: 3%;
+  height: 41px;
 }
 }

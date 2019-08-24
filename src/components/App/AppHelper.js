@@ -5,6 +5,7 @@ function fetchData(urlText){
 
   if(urlText === 'people/' ){
     url = `https:/swapi.co/api/${urlText}`
+    
   } else {
     url = urlText
   }
@@ -68,9 +69,9 @@ function getResidents(planets){
             residents: `NA`
           }
          }
-       }) 
+       });
   return Promise.all(residents)
-}
+};
 
 
 export {
@@ -78,4 +79,4 @@ export {
   getSpecies,
   fetchData,
   getResidents,
-}
+};

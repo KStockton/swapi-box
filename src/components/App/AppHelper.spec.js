@@ -8,10 +8,11 @@ getResidents
 describe('fetchData', () => {
   
 const mockFilm = {
-  title: 'The Empire Strikes Back',
-  releaseDate: '1980-05-17',
-  openingCrawl: 'Although the Death'
-}
+    title: 'The Empire Strikes Back',
+    releaseDate: '1980-05-17',
+    openingCrawl: 'Although the Death'
+  }
+  
   beforeAll(()=> {
   window.fetch = jest.fn().mockImplementation(() => {
     return Promise.resolve({
