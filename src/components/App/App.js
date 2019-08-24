@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { getSpecies, fetchData, getHomeWorld, getResidents} from './AppHelper.js'
-import Scroll from '../Scroll/Scroll.js'
+import { getSpecies, fetchData, getHomeWorld, getResidents} from './AppHelper.js';
+import Scroll from '../Scroll/Scroll.js';
 import logo from '../../logo.svg';
 import './_App.scss';
-import Controls from '../Controls/Controls.js'
-import CardContainer from '../CardContainer/CardContainer.js'
+import Controls from '../Controls/Controls.js';
+import CardContainer from '../CardContainer/CardContainer.js';
 // import Favorites from '../Favorites/Favorites'
 
 export default class App extends Component {
