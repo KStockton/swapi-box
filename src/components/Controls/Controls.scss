@@ -1,6 +1,6 @@
 .Controls-btn {
   margin-left: 95px;
-  width: 163px;
+  width: 186px;
   height: 58px;
   border-radius: 8px;
   box-shadow: inset 4px 3px 15px #b8b8bd;
@@ -8,20 +8,14 @@
   font-family: Orbitron;
   padding-top: 3px;
   font-weight: 700;
+  background-color: white;
+}
+
+.people:hover, .planets:hover, .vehicles:hover  {
+  background-color: #ffff00;
   cursor: pointer;
 }
 
-.people:hover {
-  background-color: #ffff00;
-}
-
-.planets:hover {
-  background-color: #ffff00;
-}
-
-.vehicles:hover {
-  background-color: #ffff00;
-}
 
 .vehicles-wrapper {
   display: flex;

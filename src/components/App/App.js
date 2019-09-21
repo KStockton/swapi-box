@@ -75,9 +75,11 @@ getPeople = () => {
   .catch(error => this.setState({error}))
 }
 
-getPlanets(){
-  this.setState({isLoading: true })
-  const url = `https://swapi.co/api/planets/`
+getPlanets = () => {
+  this.setState({isLoading: true });
+
+  const url = `https://swapi.co/api/planets/`;
+
   return fetchData(url)
   .then(planets => getResidents(planets.results))
   .then(planets => this.setState({ planets, isLoading: false}))
@@ -85,8 +87,10 @@ getPlanets(){
 }
 
 getVehicles(){
-  this.setState({isLoading: true})
-  const url = `https://swapi.co/api/vehicles/`
+  this.setState({isLoading: true});
+
+  const url = `https://swapi.co/api/vehicles/`;
+  
   return fetchData(url)
   .then(result => result.results.map(vehicle => {
     return { 
@@ -102,22 +106,22 @@ getVehicles(){
 }
 
 render() {
-  const { category } = this.state
-  // const categoryStatus = this.state.category === ''
-  let initialDisplay
-  if(this.state.isLoading)
+  const { category } = this.state;
+  let initialDisplay;
+
+  if(this.state.isLoading){
    initialDisplay = 
                   <section>
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h5>Loading have faith...</h5>
                   </section>
- 
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <Controls handleCategory={this.handleCategory}/>
         {initialDisplay}
-        {/* <Favorites /> */}
       </header>
       { category === '' ? 
         <Scroll filmText={this.state.filmText} /> : 
