@@ -65,20 +65,21 @@
     transform: perspective(250px) rotateX(41deg);
     height: 80%;
     width: 90%;
-}
-.Favorites-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border: 2px solid white;
-  width: 172px;
-  padding-left: 15px;
-  border-radius: 12px;
-  margin: 26px;
-  font-size: 17px;
-  position: absolute;
-  text-align: center;
-  right: 3%;
-  height: 41px;
-}
+  }
+  
+  .Favorites-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid white;
+    width: 172px;
+    padding-left: 15px;
+    border-radius: 12px;
+    margin: 26px;
+    font-size: 17px;
+    position: absolute;
+    text-align: center;
+    right: 3%;
+    height: 41px;
+  }
 }

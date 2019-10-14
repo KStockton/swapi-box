@@ -4,7 +4,6 @@
 
 .Scroll-galaxy-text {
   font-weight: 800;
-  margin: 20% auto;
   color: white;
   opacity: 0;
   z-index: 1;
@@ -24,7 +23,7 @@
   transform: perspective(250px) rotateX(41deg);
   height: 95%;
   width: 90%;
-  
+
   &:after {
    position: absolute;
    content: '';
@@ -50,4 +49,14 @@
   font-family: Pathway Gothic One sans-serif;
   background: linear-gradient(0deg, transparent, #0000001a 75%);
   line-height: 105%;
+}
+
+.Scroll-galaxy-text {
+  font-weight: 800;
+  margin: 20% auto;
+  position: inherit;
+  opacity: 0;
+  z-index: 1;
+  animation: fadeTitle 2s ease-out;
+  font-size: 28px
 }
