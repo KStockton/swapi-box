@@ -12,14 +12,14 @@ exports[`Controls Expect component to render without crashing 1`] = `
   <button
     className="Controls-btn people"
     name="people"
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     <div
       className="vehicles-wrapper"
     >
       <img
         alt="star-trooper"
-        src="Stroop.svg"
+        src="Trooper.svg"
       />
       People
     </div>
@@ -27,7 +27,7 @@ exports[`Controls Expect component to render without crashing 1`] = `
   <button
     className="Controls-btn planets"
     name="planets"
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     <div
       className="vehicles-wrapper"
@@ -42,7 +42,7 @@ exports[`Controls Expect component to render without crashing 1`] = `
   <button
     className="Controls-btn vehicles"
     name="vehicles"
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     <div
       className="vehicles-wrapper"

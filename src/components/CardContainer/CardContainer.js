@@ -1,18 +1,18 @@
 import React from 'react';
-import Card from '../Card/Card'
-import './CardContainer.scss'
-const shortid = require('shortid')
+import Card from '../Card/Card';
+import './CardContainer.scss';
+const shortid = require('shortid');
 
 const CardContainer = ({category, topic}) => {
   let cards = category.map(item =>{
-   return <Card {...item} key={shortid.generate()} topic={topic}/>
-  })
+    return <Card {...item} key={shortid.generate()} topic={topic}/>;
+  });
   
   return (
     <section className="CardContainer-wrapper">
-       {cards}
+      {cards}
     </section>
-  )
-}
+  );
+};
 
-export default CardContainer
+export default CardContainer;

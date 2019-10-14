@@ -6,7 +6,7 @@ exports[`CardContainer should render correctly without crashing 1`] = `
 >
   <Card
     homeworld="Tatooine"
-    key="tp8z60oXA"
+    key="I70GlaBcK"
     language="Galactic Basic"
     name="Luke Skywalker"
     population="200000"
@@ -14,7 +14,7 @@ exports[`CardContainer should render correctly without crashing 1`] = `
   />
   <Card
     homeworld="Tatooine"
-    key="uc1C0bxmi7"
+    key="GYdzKeZHfu"
     language="n/a"
     name="C-3PO"
     population="200000"

@@ -24,6 +24,7 @@
   transform: perspective(250px) rotateX(41deg);
   height: 95%;
   width: 90%;
+  
   &:after {
    position: absolute;
    content: '';

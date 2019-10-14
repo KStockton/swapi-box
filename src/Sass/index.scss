@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Roboto+Condensed');
-@import '_variables.scss';
-@import './components/Scroll/Scroll.scss';
+@import './variables';
+@import '../components/Scroll/Scroll.scss';
 
 
 body {
