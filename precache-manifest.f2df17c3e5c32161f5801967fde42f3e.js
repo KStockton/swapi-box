@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b7d4c6e9303d3a54e1638bb0424eb53e",
+    "revision": "20e688175177e0a9ebb8109e49c93319",
     "url": "/swapi-box/index.html"
   },
   {
-    "revision": "545b8dd75f87ed4d18d6",
-    "url": "/swapi-box/static/css/main.f0e1c78d.chunk.css"
+    "revision": "53446b1aa5c52901e2ea",
+    "url": "/swapi-box/static/css/main.8f0a8a74.chunk.css"
   },
   {
-    "revision": "8f4d0ec67759b3eb51de",
-    "url": "/swapi-box/static/js/2.917bba69.chunk.js"
+    "revision": "8de0504779d2bc8fbb2c",
+    "url": "/swapi-box/static/js/2.9426254f.chunk.js"
   },
   {
-    "revision": "545b8dd75f87ed4d18d6",
-    "url": "/swapi-box/static/js/main.00a4640c.chunk.js"
+    "revision": "53446b1aa5c52901e2ea",
+    "url": "/swapi-box/static/js/main.4ad21cc9.chunk.js"
   },
   {
     "revision": "131d28aeaaf818238108",
@@ -33,7 +33,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "0043575e1b1edebe347edbef2d50b74c",
-    "url": "/swapi-box/static/media/Stroop.0043575e.svg"
+    "url": "/swapi-box/static/media/Trooper.0043575e.svg"
   },
   {
     "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",

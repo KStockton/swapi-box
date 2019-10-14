@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/swapi-box/static/css/main.f0e1c78d.chunk.css",
-    "main.js": "/swapi-box/static/js/main.00a4640c.chunk.js",
-    "main.js.map": "/swapi-box/static/js/main.00a4640c.chunk.js.map",
+    "main.css": "/swapi-box/static/css/main.8f0a8a74.chunk.css",
+    "main.js": "/swapi-box/static/js/main.4ad21cc9.chunk.js",
+    "main.js.map": "/swapi-box/static/js/main.4ad21cc9.chunk.js.map",
     "runtime~main.js": "/swapi-box/static/js/runtime~main.a3482073.js",
     "runtime~main.js.map": "/swapi-box/static/js/runtime~main.a3482073.js.map",
-    "static/js/2.917bba69.chunk.js": "/swapi-box/static/js/2.917bba69.chunk.js",
-    "static/js/2.917bba69.chunk.js.map": "/swapi-box/static/js/2.917bba69.chunk.js.map",
+    "static/js/2.9426254f.chunk.js": "/swapi-box/static/js/2.9426254f.chunk.js",
+    "static/js/2.9426254f.chunk.js.map": "/swapi-box/static/js/2.9426254f.chunk.js.map",
     "index.html": "/swapi-box/index.html",
-    "precache-manifest.389f9fb4b2e41f4d4438bd069221c19c.js": "/swapi-box/precache-manifest.389f9fb4b2e41f4d4438bd069221c19c.js",
+    "precache-manifest.f2df17c3e5c32161f5801967fde42f3e.js": "/swapi-box/precache-manifest.f2df17c3e5c32161f5801967fde42f3e.js",
     "service-worker.js": "/swapi-box/service-worker.js",
-    "static/css/main.f0e1c78d.chunk.css.map": "/swapi-box/static/css/main.f0e1c78d.chunk.css.map",
+    "static/css/main.8f0a8a74.chunk.css.map": "/swapi-box/static/css/main.8f0a8a74.chunk.css.map",
     "static/media/DeathStar.svg": "/swapi-box/static/media/DeathStar.e7f35859.svg",
     "static/media/Falcon.svg": "/swapi-box/static/media/Falcon.fbdbc00b.svg",
     "static/media/Card.scss": "/swapi-box/static/media/StarWarsLogo.6f56c0f1.jpg",
-    "static/media/Stroop.svg": "/swapi-box/static/media/Stroop.0043575e.svg",
+    "static/media/Trooper.svg": "/swapi-box/static/media/Trooper.0043575e.svg",
     "static/media/logo.svg": "/swapi-box/static/media/logo.5d5d9eef.svg",
     "static/media/noFav.svg": "/swapi-box/static/media/noFav.d072b762.svg"
   }
