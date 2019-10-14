@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSpecies, fetchData, getHomeWorld, getResidents} from './AppHelper.js';
+import { getSpecies, fetchData, getHomeWorld, getResidents} from '../../Util/fetch.js';
 import Scroll from '../Scroll/Scroll.js';
 import logo from '../../assests/logo.svg';
 import './_App.scss';
@@ -60,7 +60,7 @@ handleFetch(usercategory) {
     this.getPlanets();
     break;
   default: return null;
-  }
+  } 
 }
 
 getPeople = () => {

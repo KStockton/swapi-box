@@ -31,7 +31,7 @@ describe('App', () => {
     
   it('should update state when handleCategory is called', () => {
     const event = { target: { name: 'people'}};
-    wrapper.instance().handleCategory(event);
+    wrapper.instance().handleCategory(event.target.name);
     expect(wrapper.state('category')).toEqual('people');
   });
 
@@ -48,6 +48,7 @@ describe('App', () => {
   xit('should call handleFetch when handleCategory is invoked', () => {
     let mockEvent = { target: { name: 'people'}};
     wrapper.instance().handleCategory(mockEvent);
+    wrapper.update();
     expect(mockHandleFetch).toBeCalled();
   });
     

@@ -3,7 +3,7 @@ import {
   getSpecies,
   fetchData,
   getResidents
-} from './AppHelper.js';
+} from './fetch.js';
 
 describe('fetchData', () => {
   
