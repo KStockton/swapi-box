@@ -6,11 +6,11 @@
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.16.0",
     "gh-pages": "^2.1.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.0.0",
+    "react-scripts": "^3.4.3",
     "react-transition-group": "^4.3.0",
     "shortid": "^2.2.15"
   },

@@ -98,7 +98,6 @@ getVehicles() {
       };
     }
     ))
-
     .then(vehicles => this.setState({vehicles, isLoading: false}));
 }
 
