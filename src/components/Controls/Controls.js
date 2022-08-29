@@ -6,24 +6,24 @@ import trooper from '../../assests/Trooper.svg';
 import falcon from '../../assests/Falcon.svg';
 
 
-const Controls = (props) => {
+const Controls = ({ handleCategory }) => {
   
   return (
     <section className="Controls-wrapper">
       <h1 className="title">Swapi-Box</h1>
-      <button className="Controls-btn people" name='people' onClick={() => props.handleCategory('people')}>
+      <button className="Controls-btn people" name='people' onClick={() => handleCategory('people')}>
         <div className="vehicles-wrapper">
           <img src={trooper} alt="star-trooper"/>
         People
         </div>
       </button>
-      <button className="Controls-btn planets" name='planets' onClick={() => props.handleCategory('planets')}>
+      <button className="Controls-btn planets" name='planets' onClick={() => handleCategory('planets')}>
         <div className="vehicles-wrapper">
           <img src={planets} alt="deathstar"/>
         Planets
         </div>
       </button>
-      <button  className="Controls-btn vehicles" name='vehicles' onClick={() => props.handleCategory('vehicles')}>
+      <button  className="Controls-btn vehicles" name='vehicles' onClick={() => handleCategory('vehicles')}>
         <div className="vehicles-wrapper">
           <img src={falcon} alt="falcon"/>
             Vehicles

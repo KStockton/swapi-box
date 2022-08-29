@@ -9,7 +9,7 @@ const CardContainer = ({category, topic}) => {
   });
   
   return (
-    <section className="CardContainer-wrapper">
+    <section className="CardContainer-wrapper">   
       {cards}
     </section>
   );
