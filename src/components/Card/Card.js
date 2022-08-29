@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.scss';
 import noFav from '../../assests/noFav.svg';
-// import fav from '../../assests/fav.svg'
+// import fav from '../../assests/fav.svg';
 import PropTypes from 'prop-types';
 
 
@@ -15,7 +15,9 @@ const Card = ({
 
   if (topic === 'people') {
     card = <article className="Card-wrapper">
-      <h3 className="Card-info name"><span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" /></h3>
+      <h3 className="Card-info name">
+        <span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" />
+      </h3>
       <p className="Card-info"><span className="Card-text">Homeworld:</span> {homeworld}</p>
       <p className="Card-info"><span className="Card-text">Species:</span> {species}</p>
       <p className="Card-info"><span className="Card-text">Language:</span> {language}</p>
@@ -23,7 +25,9 @@ const Card = ({
     </article>;
   } else if (topic === 'planets') {
     card = <article className="Card-wrapper">
-      <h3 className="Card-info name"><span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" /></h3>
+      <h3 className="Card-info name">
+        <span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" />
+      </h3>
       <p className="Card-info"><span className="Card-text">Terrain:</span> {terrain}</p>
       <p className="Card-info"><span className="Card-text">Population:</span> {population}</p>
       <p className="Card-info"><span className="Card-text">Climate:</span> {climate}</p>
@@ -31,7 +35,9 @@ const Card = ({
     </article>;
   } else {
     card = <article className="Card-wrapper">
-      <h3 className="Card-info name"><span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" /></h3>
+      <h3 className="Card-info name">
+        <span className="Card-text">Name:</span> {name}<img src={noFav} alt="favorite" />
+      </h3>
       <p className="Card-info"><span className="Card-text">Model:</span> {model}</p>
       <p className="Card-info"><span className="Card-text">Class:</span> {vehicleClass}</p>
       <p className="Card-info"><span className="Card-text">Passengers:</span> {passengers}</p>

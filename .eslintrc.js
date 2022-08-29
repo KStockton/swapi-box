@@ -1,6 +1,6 @@
 module.exports = {
   "extends": "eslint:recommended",
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["react"],
   "env": {
     "browser": true,
@@ -79,4 +79,4 @@ module.exports = {
   "globals": {
     "expect": true
   }
-}
+};

@@ -1,8 +1,7 @@
 function fetchData(urlText) {
-  let url; 
-
-  if (urlText === 'people/' ) {
-    url = `https:/swapi.co/api/${urlText}`;
+  let url;
+  if (urlText === 'people/') {
+    url = `https:/swapi.dev/api/${urlText}`;
   } else {
     url = urlText;
   }
@@ -40,7 +39,6 @@ function getHomeWorld(characterBios) {
 }
 
 function getResidents(planets) {
-  // eslint-disable-next-line array-callback-return
   const residents = planets.map(residentOnly => {
  
     if (residentOnly.residents.length > 0) {
