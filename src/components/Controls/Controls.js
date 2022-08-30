@@ -2,7 +2,6 @@ import React from 'react';
 import './Controls.scss';
 import planets from '../../assests/DeathStar.svg';
 import PropTypes from 'prop-types';
-import trooper from '../../assests/Trooper.svg';
 import falcon from '../../assests/Falcon.svg';
 
 
@@ -11,12 +10,6 @@ const Controls = ({ handleCategory }) => {
   return (
     <section className="Controls-wrapper">
       <h1 className="title">Swapi-Box</h1>
-      <button className="Controls-btn people" name='people' onClick={() => handleCategory('people')}>
-        <div className="vehicles-wrapper">
-          <img src={trooper} alt="star-trooper"/>
-        People
-        </div>
-      </button>
       <button className="Controls-btn planets" name='planets' onClick={() => handleCategory('planets')}>
         <div className="vehicles-wrapper">
           <img src={planets} alt="deathstar"/>
