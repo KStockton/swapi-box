@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getSpecies, fetchData, getHomeWorld, getResidents} from '../../Util/fetch.js';
+import {  fetchData, getResidents} from '../../Util/fetch.js';
 import Scroll from '../Scroll/Scroll.js';
 import logo from '../../assests/logo.svg';
 import './_App.scss';
@@ -24,12 +24,7 @@ export default class App extends Component {
   componentDidMount = () => {
     const filmNumber = Math.floor(Math.random() * 7) + 1;
     const url = `https://swapi.dev/api/films/${filmNumber}/`;
-    const options = {
-      headers: {
-        "Access-Control-Allow-Headers": '*'
-      }
-    };
-    return fetchData(url, options)
+    return fetchData(url)
       .then(result => {
         const filmText = {
           openingCrawl: result.opening_crawl,
@@ -54,9 +49,6 @@ export default class App extends Component {
   handleFetch(usercategory) {
 
     switch (usercategory) {
-    case 'people':
-      this.getPeople();
-      break;
     case 'vehicles':
       this.getVehicles();
       break;
@@ -67,14 +59,6 @@ export default class App extends Component {
     } 
   }
 
-  getPeople = () => {
-    this.setState({isLoading: !this.state.isLoading});
-    return fetchData('people/')
-      .then(characters => getSpecies(characters.results))
-      .then(charactersData => getHomeWorld(charactersData))
-      .then(people => this.setState({ people, isLoading: false}))
-      .catch(error => this.setState({error}));
-  };
 
   getPlanets = () => {
     this.setState({isLoading: true });

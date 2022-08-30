@@ -17,15 +17,15 @@ function fetchData(urlText) {
 
 function getSpecies(characters) {
   const completeSpeciesPromise = characters.map(character =>{
-
     return fetchData(character.species[0])         
       .then(species => ({...character, species}));
   });
-  return Promise.all(completeSpeciesPromise);
+  // const result = Promise.all(completeSpeciesPromise);
+  console.log(completeSpeciesPromise);
 }
 
 function getHomeWorld(characterBios) {
-   
+  console.log(characterBios);
   const homeWorld = characterBios.map(bio => {
     return fetchData(bio.homeworld)
       .then(homeworlds => ({
@@ -35,6 +35,7 @@ function getHomeWorld(characterBios) {
         species: bio.species.name, 
         language: bio.species.language }));
   });
+  console.log(homeWorld);
   return Promise.all(homeWorld);
 }
 
